@@ -1,0 +1,25 @@
+---
+permalink: manage/disable-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: ストレージシステムの初回構成時には、AutoSupportはデフォルトで有効になっています。有効になってから24時間後にテクニカルサポートにメッセージが送信されます。 
+---
+= AutoSupportを無効にする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージシステムの初回構成時には、AutoSupportはデフォルトで有効になっています。有効になってから24時間後にテクニカルサポートにメッセージが送信されます。AutoSupportを無効にすると、プロアクティブなサポートと監視を受けることができなくなります。
+
+
+NOTE: AutoSupportは有効にしておくことを推奨します。問題の検出と解決を高速化するのに役立ちます。AutoSupportの情報は、無効な場合でも収集されてローカルに格納されます。
+
+.手順
+. vCenter Serverで、メンテナンスコンソールを開きます。
+. maintenanceユーザとしてログインします。
+. 1を入力して*[アプリケーションの設定]*を選択します。
+. 3と入力して* Disable AutoSupport *を選択します。
+. 確認ダイアログボックスで「y」と入力します。
+

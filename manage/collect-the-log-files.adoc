@@ -1,0 +1,42 @@
+---
+permalink: manage/collect-the-log-files.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP tools for VMware vSphereのログファイルは、ONTAP tools for VMware vSphereグラフィカルユーザインターフェイス\（GUI\）のオプションから収集できます。テクニカルサポートから、問題のトラブルシューティングに役立つログファイルの収集を求められることがあります。 
+---
+= ログファイルを収集する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereのログファイルは、ONTAP tools Managerユーザインターフェイスのオプションから収集できます。テクニカルサポートから、問題のトラブルシューティングに役立つログファイルの収集を求められることがあります。
+
+
+NOTE: ONTAP tools Managerからのログの生成には、すべてのvCenter Serverインスタンスのすべてのログが含まれます。vCenter Clientユーザインターフェイスからのログの生成範囲は、選択したvCenter Serverに限定されます。
+
+.手順
+. WebブラウザからONTAP Tools Managerを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者のクレデンシャルを使用してログインします。
+. サイドバーから* Log Bundles *を選択します。
++
+この処理には数分かかることがあります。
+
+. [生成]*を選択して、ログファイルを生成します。
+. [Log Bundle]のラベルを入力し、*[Generate]*を選択します。
++
+tar.gzファイルをダウンロードし、テクニカルサポートに送信します。
+
+
+
+vCenter Clientユーザインターフェイスを使用してログバンドルを生成するには、次の手順を実行します。
+
+.手順
+. vSphere Clientにログインします。
+. vSphere Clientのホームページで、* Support *>* Log bundle *>* Generate *に移動します。
+. ログバンドルラベルを指定し、ログバンドルを生成します。ファイルが生成されると、ダウンロードオプションが表示されます。ダウンロードには時間がかかる場合があります。
+
+
+
+NOTE: 生成されたログバンドルは、過去3日間または72時間以内に生成されたログバンドルに置き換わります。

@@ -1,0 +1,8 @@
+---
+section: upgrade
+title: ONTAP Tools for VMware vSphereのアップグレード
+entries:
+- title: ONTAP Tools for VMware vSphere 10.xから10.3へのアップグレード
+  url: "/upgrade/upgrade-ontap-tools.html"
+- title: アップグレードのエラーコード
+  url: "/upgrade/upgrade-error-codes.html"

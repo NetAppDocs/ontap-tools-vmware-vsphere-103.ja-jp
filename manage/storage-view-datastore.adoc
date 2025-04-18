@@ -1,0 +1,35 @@
+---
+permalink: manage/storage-view-datastore.html 
+sidebar: sidebar 
+keywords: Remove vVol datastore 
+summary: 'ONTAP tools for VMware vSphereの[Configure]タブにあるONTAPストレージビューには、データストアとそのボリュームに関連するデータが表示されます。' 
+---
+= データストアのONTAPストレージビュー
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereでは、[Configure]タブにデータストアとそのボリュームのONTAPストレージ側ビューが表示されます。
+
+.手順
+. vSphere Clientで、データストアに移動します。
+. 右側のペインで[Configure]タブを選択します。
+. NetApp ONTAP tools *>* ONTAP Storage *を選択します。データストアのタイプに応じて、ビューが変わります。詳細については、次の表を参照してください。
+
+
+|===
+
+
+| *データストアタイプ* | *利用可能な情報* 
+
+
+| NFSデータストア | ストレージの詳細*ページには、ストレージバックエンド、アグリゲート、およびボリュームの情報が表示されます。[NFSの詳細]ページには、NFSデータストアに関連するデータが表示されます。 
+
+
+| VMFSテタストア | ストレージの詳細*ページには、ストレージバックエンド、アグリゲート、およびボリュームの情報が表示されます。LUNの詳細*ページには、LUNに関連するデータが表示されます。[ネームスペースの詳細]ページには、VMFSデータストアがNVMe/TCPまたはNVMe/FCプロトコルを使用している場合にネームスペースに関連するデータが含まれます。ASA R2ストレージシステムベースのデータストアについては、ボリュームとアグリゲートの詳細は表示されません。 
+
+
+| vVolテエタストア | すべてのボリュームを表示します。ONTAPストレージペインでは、ストレージを拡張または削除できます。このビューは、ASA R2システムベースのvVolデータストアではサポートされていません。 
+|===

@@ -1,0 +1,92 @@
+---
+permalink: concepts/rbac-ontap-use.html 
+sidebar: sidebar 
+keywords: ontap rbac, use ontap rbac 
+summary: ONTAPでのONTAP Tools for VMware vSphere 10 RBACの実装については、本番環境で使用する前に考慮する必要があります。 
+---
+= ONTAP RBACとONTAP Tools for VMware vSphere 10の使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAPでのONTAP Tools for VMware vSphere 10 RBACの実装については、本番環境で使用する前に考慮する必要があります。
+
+
+
+== セツテイフロセスノカイヨウ
+
+ONTAP Tools for VMware vSphere 10では、カスタムロールを持つONTAPユーザの作成がサポートされます。定義はJSONファイルにパッケージ化されており、ONTAPクラスタにアップロードできます。ユーザを作成し、環境やセキュリティのニーズに合わせてロールを調整できます。
+
+主な設定手順について、以下で大まかに説明します。link:../configure/configure-user-role-and-privileges.html["ONTAPユーザのロールと権限の設定"]詳細については、を参照してください。
+
+.1.準備
+ONTAP tools ManagerとONTAPクラスタの両方に対する管理クレデンシャルが必要です。
+
+.2.JSON定義ファイルをダウンロードする
+ONTAP tools Managerのユーザインターフェイスにサインインしたら、RBAC定義を含むJSONファイルをダウンロードできます。
+
+.3.ロールを持つONTAPユーザを作成する
+System Managerにサインインしたら、ユーザとロールを作成できます。
+
+. 左側の*[クラスタ]*を選択し、*[設定]*を選択します。
+. [ユーザとロール]*まで下にスクロールし、をクリックします `-->`。
+. [Users]で[Add]*を選択し、[Virtualization products]*を選択します。
+. ローカルワークステーションでJSONファイルを選択してアップロードします。
+
+
+.4.ロールを設定する
+ロールの定義の一環として、いくつかの管理上の決定を行う必要があります。詳細については、を参照してください<<System Managerを使用してロールを設定する>>。
+
+
+
+== System Managerを使用してロールを設定する
+
+System Managerで新しいユーザとロールの作成を開始し、JSONファイルをアップロードしたら、環境とニーズに基づいてロールをカスタマイズできます。
+
+
+
+=== コアユーザとロールの設定
+
+RBACの定義は、VSC、VASA Provider、SRAなど、複数の製品機能としてパッケージ化されています。RBACのサポートが必要な環境を選択してください。たとえば、ロールでリモートプラグイン機能をサポートする場合は、[VSC]を選択します。また、ユーザ名と関連するパスワードを選択する必要があります。
+
+
+
+=== 権限
+
+Privilegesロールは、ONTAPストレージに必要なアクセスレベルに基づいて4セットに分類されます。ロールのベースとなるPrivilegesには次のものがあります。
+
+* 調査
++
+ストレージシステムを追加できます。
+
+* ストレージの作成
++
+ストレージを作成できます。また、Discoveryロールに関連付けられているすべてのPrivilegesも含まれます。
+
+* ストレージの変更
++
+ストレージを変更できます。また、discoveryおよびcreate storageのロールに関連付けられているすべてのPrivilegesも含まれます。
+
+* ストレージの削除
++
+ストレージを破棄できます。また、検出、ストレージの作成、ストレージの変更の各ロールに関連付けられているすべてのPrivilegesも含まれます。
+
+
+
+
+
+=== ロールを持つユーザを生成する
+
+環境の構成オプションを選択したら、*[追加]*をクリックすると、ONTAPによってユーザーとロールが作成されます。生成されたロールの名前は、次の値を連結したものです。
+
+* JSONファイルで定義された固定プレフィックス値（例：「OTV_10」）
+* 選択した製品機能
+* 権限セットのリスト。
+
+
+.例
+`OTV_10_VSC_Discovery_Create`
+
+新しいユーザーが「ユーザーとロール」ページのリストに追加されます。HTTPとONTAPIの両方のユーザログイン方法がサポートされていることに注意してください。

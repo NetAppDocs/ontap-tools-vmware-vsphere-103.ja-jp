@@ -1,0 +1,164 @@
+---
+permalink: concepts/ontap-tools-concepts-terms.html 
+sidebar: sidebar 
+keywords:  
+summary: 次のセクションでは、このドキュメントで使用される主な概念と用語について説明します。 
+---
+= 主要な概念と用語
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+次のセクションでは、このドキュメントで使用される主な概念と用語について説明します。
+
+
+
+=== ASA r2システム
+
+新しいNetApp ASA R2システムは、ハードウェアとソフトウェアの統合ソリューションを提供し、SANのみのお客様のニーズに合わせたシンプルな操作性を実現します。 https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["ASA R2ストレージシステムの詳細"]です。
+
+
+
+=== 認証局（CA）
+
+CAは、Secure Sockets Layer（SSL）証明書を発行する信頼されたエンティティです。
+
+
+
+=== 整合グループ
+
+整合グループは、1つのユニットとして管理されるボリュームの集まりです。ONTAPでは、整合グループを使用することで、複数のボリュームにまたがるアプリケーションワークロードの管理が容易になり、保護が保証されます。詳細については https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["整合グループ"]、をご覧ください。
+
+
+
+=== デュアルスタック
+
+デュアルスタックネットワークは、IPv4アドレスとIPv6アドレスの両方の同時使用をサポートするネットワーク環境です。
+
+
+
+=== 高可用性（ HA ）
+
+クラスタノードは、ノンストップオペレーションを実現するためにHAペアで構成されます。
+
+
+
+=== 論理ユニット番号（LUN）
+
+LUNは、Storage Area Network（SAN；ストレージエリアネットワーク）内の論理ユニットを識別するために使用される番号です。これらのアドレス指定可能なデバイスは、通常、SCSI（Small Computer System Interface）プロトコルまたはそのカプセル化された派生物の1つを介してアクセスされる論理ディスクです。
+
+
+
+=== NVMeネームスペースとサブシステム
+
+NVMeネームスペースは、論理ブロックにフォーマット可能な不揮発性メモリの容量です。ネームスペースはFCプロトコルやiSCSIプロトコルのLUNに相当し、NVMeサブシステムはigroupに相当します。NVMeサブシステムはイニシエータに関連付けることができます。これにより、サブシステム内のネームスペースに関連付けられたイニシエータがアクセスできるようになります。
+
+
+
+=== ONTAPツールマネージャ
+
+ONTAP tools Managerを使用すると、管理対象のvCenter Serverインスタンスやオンボードストレージバックエンドに対して、VMware vSphere管理者向けのONTAP toolsをより細かく制御できます。ONTAP tools Managerを使用すると、vCenter Serverインスタンス、ストレージバックエンド、証明書、パスワード、およびログバンドルのダウンロードを管理できます。
+
+
+
+=== Open Virtual Appliance（OVA；オープン仮想アプライアンス）
+
+OVAは、仮想マシン上で実行する必要がある仮想アプライアンスまたはソフトウェアをパッケージ化して配布するためのオープンスタンダードです。
+
+
+
+=== 目標復旧時点（RPO）
+
+RPOは、データをバックアップまたはレプリケートする頻度を表します。これは、業務を再開するために、システム停止後にデータをリカバリする必要がある時点を表します。たとえば、RPOが4時間の組織では、災害発生時に最大4時間のデータ損失を許容できます。
+
+
+
+=== SnapMirrorアクティブ同期（SMAS）
+
+SnapMirror Active Syncを使用すると、サイト全体に障害が発生してもビジネスサービスの運用を継続できるため、アプリケーションがセカンダリコピーを使用して透過的にフェイルオーバーできるようになります。SnapMirrorアクティブ同期でフェイルオーバーをトリガーするには、手動操作またはカスタムスクリプトが必要です。詳しくは https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["SnapMirrorアクティブ同期"]こちらをご覧ください。
+
+
+
+=== ストレージバックエンド
+
+ストレージバックエンドは、ESXiホストが仮想マシンファイル、データ、およびその他のリソースを格納するために使用する基盤となるストレージインフラです。ストレージバックエンドを使用すると、ESXiホストは永続的データにアクセスして管理できるため、仮想環境に必要なストレージ機能とパフォーマンスが提供されます。
+
+
+
+=== Storage Replication Adapter（SRA）
+
+SRAは、VMware Live Site Recoveryアプライアンスにインストールされるストレージベンダー固有のソフトウェアです。このアダプタを使用すると、Storage Virtual Machine（SVM）レベルおよびクラスタレベルの設定でSite Recovery Managerとストレージコントローラの間の通信が可能になります。
+
+
+
+=== Storage Virtual Machine（SVM）
+
+SVMは、ハイパーバイザーで実行される仮想マシンと同様に、物理リソースを抽象化する論理エンティティです。SVMには、複数のデータボリュームと、クライアントへのデータの提供に使用するLIFが1つ以上含まれます。
+
+
+
+=== 均一な構成と非均一な構成
+
+* *均一なホストアクセス*は、両方のサイトのホストが両方のサイトのストレージクラスタへのすべてのパスに接続されていることを意味します。サイト間パスが複数の距離にわたってストレッチされている。
+* *非均一ホストアクセス*は、各サイトのホストが同じサイトのクラスタにのみ接続されることを意味します。サイト間パスとストレッチパスは接続されません。
++
+
+NOTE: 均一ホストアクセスは、すべてのSnapMirrorアクティブ同期配置でサポートされます。非均一ホストアクセスは、対称アクティブ/アクティブ配置でのみサポートされます。
+
+
+
+
+
+=== Virtual Machine File System（VMFS）
+
+VMFSは、VMware vSphere環境に仮想マシンファイルを格納するために特別に設計されたクラスタファイルシステムです。
+
+
+
+=== 仮想ボリューム（ VVOL ）
+
+VVOLは、仮想マシンで使用されるストレージをボリュームレベルで抽象化します。これにはいくつかの利点があり、従来のLUNの代わりに使用できます。VVOLデータストアは、通常、VVOLのコンテナとして機能する単一のLUNに関連付けられます。
+
+
+
+=== VMストレージポリシー
+
+仮想マシンストレージポリシーは、vCenter Serverの[Policies and Profiles]に作成されます。VVOLの場合は、NetApp VVOLストレージタイププロバイダのルールを使用してルールセットを作成します。
+
+
+
+=== VMware Live Site Recovery
+
+VMware Live Site Recoveryは、VMware仮想環境のビジネス継続性、ディザスタリカバリ、サイト移行、および無停止テスト機能を提供します。
+
+
+
+=== VMware vSphere APIs for Storage Awareness（VASA）
+
+VASAは、管理用のストレージアレイとvCenter Serverを統合する一連のAPIです。このアーキテクチャは、VMware vSphereとストレージシステムの間の通信を処理するVASA Providerなど、複数のコンポーネントに基づいています。
+
+
+
+=== VMware vSphere Storage APIs - Array Integration（VAAI）
+
+VAAIは、VMware vSphere ESXiホストとストレージデバイスの間の通信を可能にする一連のAPIです。APIには、ストレージ処理をアレイにオフロードするためにホストが使用する一連のプリミティブ処理が含まれています。VAAIは、ストレージを大量に消費するタスクのパフォーマンスを大幅に向上させることができます。
+
+
+
+=== vSphere Metro Storage Cluster
+
+vSphere Metro Storage Cluster（vMSC）は、拡張されたクラスタ環境でvSphereを有効化およびサポートするテクノロジです。vMSCソリューションは、NetApp MetroClusterおよびSnapMirror Active Sync（旧称SMBC）でサポートされます。これらのソリューションは、ドメインに障害が発生した場合のビジネス継続性を強化します。耐障害性モデルは、選択した構成に基づいています。詳細については https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-vmsc["VMware vSphere Metroストレージクラスタ"]、をご覧ください。
+
+
+
+=== vVolデータストア
+
+vVolデータストアは、VASA Providerで作成および管理されるvVolコンテナを表す論理データストアです。
+
+
+
+=== RPOゼロ
+
+RPOはRecovery Point Objective（目標復旧時点）の略で、所定の時間内に許容可能とみなされるデータ損失量です。RPOゼロとは、データ損失が一切許容されないことを意味します。

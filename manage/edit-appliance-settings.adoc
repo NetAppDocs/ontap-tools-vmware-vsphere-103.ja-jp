@@ -1,0 +1,60 @@
+---
+permalink: manage/edit-appliance-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: 管理者パスワードは、ONTAP tools Managerを使用して変更できます。 
+---
+= ONTAP Tools for VMware vSphereの設定の変更
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools Managerを使用してONTAP tools for VMware vSphereの構成をスケールアップし、環境内のノード数を増やすか、構成をハイアベイラビリティ（HA）セットアップに変更します。ONTAP Tools for VMware vSphereアプライアンスは、最初はシングルノード非HA構成で導入されます。
+
+* 始める前に *
+
+* OVAテンプレートのバージョンがノード1と同じであることを確認します。ノード1は、ONTAP Tools for VMware vSphere OVAを最初に導入するデフォルトのノードです。
+* CPUホットアドとメモリホットプラグが有効になっていることを確認します。
+
+
+.手順
+. WebブラウザからONTAP Tools Managerを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者のクレデンシャルを使用してログインします。
+. 概要セクションの*アプライアンス設定の編集*を選択します。
+. [構成]セクションでは、要件に応じてスケールアップしてノードサイズを拡張し、HA構成を有効にすることができます。変更を行うには、vCenter Serverのクレデンシャルが必要です。
++
+ONTAP toolsがHA構成の場合は、コンテンツライブラリの詳細を変更できます。新しい編集送信用のパスワードをもう一度入力する必要があります。
+
++
+
+NOTE: ONTAP tools for VMware vSphereでは、ノードサイズを増やすことしかできません。ノードサイズを減らすことはできません。非HA構成では、中規模構成のみがサポートされます。HAセットアップでは、中規模および大規模の構成がサポートされます。
+
+. HAの切り替えボタンを使用して、HA構成を有効にします。[HA settings（HA設定）]ページで、次のことを確認します。
++
+** コンテンツライブラリは、ONTAP toolsノードVMが実行されるvCenter Serverに属しています。vCenter Serverのクレデンシャルは、アプライアンスの変更用にOVAテンプレートを検証およびダウンロードするために使用されます。
+** ONTAPツールをホストしている仮想マシンがESXiホストに直接導入されていない。VMはクラスタまたはリソースプールに導入する必要があります。
++
+
+NOTE: HA構成を有効にすると、非HAシングルノード構成にリバートできなくなります。
+
+
+
+. [アプライアンス設定の編集]ウィンドウの*[HA settings]*セクションで、ノード2とノード3の詳細を入力できます。ONTAP tools for VMware vSphereでは、HAセットアップで3つのノードがサポートされます。
++
+
+NOTE: ワークフローを容易にするため、ほとんどの入力オプションにはノード1のネットワークの詳細があらかじめ入力されています。ただし、ウィザードの最終ページに移動する前に、入力データを編集できます。他の2つのノードのIPv6アドレスの詳細を入力できるのは、最初のノードでIPv6アドレスが有効になっている場合のみです。
+
++
+ESXiホストにONTAP tools VMが1つだけ含まれていることを確認します。入力は、次のウィンドウに移動するたびに検証されます。
+
+. [概要]*セクションで詳細を確認し、*変更を保存*します。
+
+
+.次の手順
+[Overview]ページには、展開のステータスが表示されます。ジョブIDを使用すると、[Jobs]ビューからアプライアンス設定の編集ジョブステータスを追跡することもできます。
+
+HAの導入に失敗し、新しいノードのステータスが[New]になっている場合は、vCenterで新しいVMを削除してから、HAの有効化処理を再試行してください。
+
+左側パネルの*[アラート]*タブには、ONTAP tools for VMware vSphereのアラートが表示されます。

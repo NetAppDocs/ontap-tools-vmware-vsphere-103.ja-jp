@@ -1,0 +1,10 @@
+---
+section: release-notes
+title: リリースノート
+entries:
+- title: リリースノート
+  url: "/release-notes/release-notes.html"
+- title: ONTAP Tools for VMware vSphere 10.3の新機能
+  url: "/release-notes/whats-new.html"
+- title: ONTAPツール9とONTAPツール10の機能比較
+  url: "/release-notes/ontap-tools-9-ontap-tools-10-feature-comparison.html"

@@ -1,0 +1,42 @@
+---
+permalink: configure/manager-user-interface.html 
+sidebar: sidebar 
+keywords: ontap tools manager, managerui 
+summary: ONTAP tools Managerを使用すると、VMware vSphere管理者向けのONTAP toolsをより詳細に制御して使用できるため、アプライアンス、テナント、ストレージバックエンドの全体的な管理に役立ちます。 
+---
+= ONTAP tools Managerユーザインターフェイス
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP Tools for VMware vSphereは、複数のvCenter Serverインスタンスを管理できるマルチテナントシステムです。ONTAP tools Managerを使用すると、管理対象のvCenter Serverインスタンスとオンボードストレージバックエンドを使用して、VMware vSphere管理者向けのONTAP toolsをより細かく制御できます。
+
+ONTAP Tools Managerは、次のことを支援します。
+
+* vCenter Serverインスタンス管理- vCenter ServerインスタンスをONTAPツールに追加および管理します。
+* ストレージバックエンド管理- ONTAPストレージクラスタをONTAP tools for VMware vSphereに追加および管理し、オンボードされたvCenter Serverインスタンスにグローバルにマッピングします。
+* ログバンドルのダウンロード- ONTAP Tools for VMware vSphereのログファイルを収集します。
+* 証明書管理-自己署名証明書をカスタムCA証明書に変更し、VASA ProviderおよびONTAP toolsのすべての証明書を更新または更新します。
+* パスワード管理-ユーザのOVAアプリケーションのパスワードをリセットします。
+
+
+ONTAP tools Managerにアクセスするには `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`、ブラウザからを起動し、導入時に指定したONTAP tools for VMware vSphere管理者のクレデンシャルを使用してログインします。
+
+ONTAP tools Managerの概要セクションでは、サービスの管理、ノードサイズのアップスケーリング、ハイアベイラビリティ（HA）の有効化など、アプライアンスの構成を管理できます。また、ノードに関連するONTAPツールの全体的な情報（健全性、ネットワークの詳細、アラートなど）を監視することもできます。
+
+image:../media/ontap-tools-manager-overview.png["ONTAP Tools Managerダッシュボードの概要"]
+
+|===
+| *カード* | * 概要 * 
+
+
+| アプライアンスのカード | アプライアンスのカードには、ONTAP toolsアプライアンスの全体的なステータスが表示されます。アプライアンスの設定の詳細と有効なサービスのステータスが表示されます。ONTAP toolsアプライアンスの詳細については、*[詳細を表示]*リンクを選択してください。アプライアンス設定の編集アクション・ジョブが進行中の場合、アプライアンス・ポートレットにジョブのステータスと詳細が表示されます。 
+
+
+| アラートカード | [Alerts]カードには、HAノードレベルのアラートなど、ONTAP toolsのアラートがタイプ別に表示されます。アラートのリストを表示するには、カウントテキスト（ハイパーリンク）を選択します。このリンクをクリックすると、選択したタイプでフィルタリングされた[Alerts]ビューページが表示されます。 
+
+
+| ONTAP toolsノードカード | ONTAP toolsのノードカードには、ノードのリストとノード名、ノードVM名、ステータス、およびすべてのネットワーク関連データが表示されます。[詳細を表示]*を選択すると、選択したノードに関連するその他の詳細を表示できます。[注]非HA構成の場合、表示されるノードは1つだけです。HAセットアップでは、3つのノードが表示されています。 
+|===

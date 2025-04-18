@@ -1,0 +1,29 @@
+---
+permalink: manage/remove-storage-from-a-vvols-datastore.html 
+sidebar: sidebar 
+keywords: Remove vVol datastore 
+summary: '[データストアの削除]操作を実行すると、選択したデータストアにVVolがない場合にデータストアが削除されます。' 
+---
+= vVolデータストアの縮小
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+[データストアの削除]操作を実行すると、選択したデータストアにVVolがない場合にデータストアが削除されます。
+
+
+NOTE: ASA R2ベースのvVolデータストアでは、vVolデータストアの縮小処理はサポートされていません。
+
+.手順
+. vSphere Clientの[ホーム]ページで、*[ホストおよびクラスタ]*を選択します。
+. ナビゲーションペインで、データストアを含むデータセンターを選択します。
+. VVOLデータストアを右クリックし、* NetApp ONTAP tools *>*[データストアからのストレージの削除]*を選択します。
+. vVolがないボリュームを選択し、*[削除]*を選択します。
++
+
+NOTE: vVolが配置されているボリュームを選択するオプションが無効になります。
+
+. [ストレージの削除]*ポップアップで*[ ONTAPクラスタからボリュームを削除する]*チェックボックスを選択してデータストアおよびONTAPストレージからボリュームを削除し、*[削除]*を選択します。
+

@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: automation/first-call.html 
+keywords: ontap tools for vmware vsphere rest api reference, first rest api call, acquire access token 
+summary: curlを使用してAPI呼び出しを発行し、ONTAP tools for VMware vSphere 10 REST APIの使用を開始できます。 
+---
+= ONTAP Tools for VMware vSphere 10 REST APIの初めての呼び出し
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+curlを使用してAPI呼び出しを発行し、ONTAP tools for VMware vSphere 10 REST APIの使用を開始できます。
+
+
+
+== 開始する前に
+
+curlの例で必要な情報とパラメータを確認してください。
+
+.必要な情報
+次のものが必要です。
+
+* ONTAP tools for VMware vSphere 10のIPアドレスまたはFQDNとポート
+* ONTAP tools Managerの管理者のクレデンシャル（ユーザ名とパスワード）
+
+
+.パラメータと変数
+以下に示すcurlの例には、Bashスタイル変数が含まれています。これらの変数はBash環境で設定することも、コマンドを実行する前に手動で更新することもできます。変数を設定すると、シェルは各コマンドを実行する前に値を置き換えます。変数については、次の表で説明します。
+
+[cols="25,75"]
+|===
+| 変数 | 説明 
+
+
+| $FQDN_IP_port | ONTAP tools Managerの完全修飾ドメイン名またはIPアドレスとポート番号。 
+
+
+| $myuser | ONTAP tools Managerアカウントのユーザ名。 
+
+
+| $マイパスワード | ONTAP tools Managerのユーザ名に関連付けられているパスワード。 
+
+
+| $access_token | ONTAP tools Managerによって発行されたアクセストークン。 
+|===
+Linux CLIでの次のコマンドと出力は、変数の設定方法と表示方法を示しています。
+
+[listing]
+----
+FQDN_IP_PORT=172.14.31.224:8443
+echo $FQDN_IP
+172.14.31.224:8443
+----
+
+
+== ステップ1：アクセストークンを取得する
+
+REST APIを使用するには、アクセストークンを取得する必要があります。アクセストークンのリクエスト方法の例を以下に示します。環境に応じた適切な値に置き換える必要があります。
+
+[source, curl]
+----
+curl --request POST \
+--location "https://$FQDN_IP_PORT/virtualization/api/v1/auth/login” \
+--header "Content-Type: application/json" \
+--header "Accept: */*" \
+-d "{"username": "$MYUSER", "password": "$MYPASSWORD"}"
+----
+応答で提供されたアクセストークンをコピーして保存します。
+
+
+
+== 手順2：REST API呼び出しを問題する
+
+アクセストークンを取得したら、curlを使用してREST API呼び出しを実行できます。最初のステップで取得したアクセストークンを含めます。
+
+.カールの例
+[source, curl]
+----
+curl --request GET \
+--location "https://$FQDN_IP_PORT/virtualization/api/v1/vcenters" \
+--header "Accept: */*" \
+--header "x-auth: $ACCESS_TOKEN"
+----
+JSON応答には、ONTAP tools Managerに対して設定されたVMware vCenterインスタンスのリストが含まれます。

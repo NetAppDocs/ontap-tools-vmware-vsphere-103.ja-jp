@@ -1,0 +1,42 @@
+---
+permalink: configure/discover-storage-systems-and-hosts.html 
+sidebar: sidebar 
+keywords:  
+summary: vSphere ClientでONTAP tools for VMware vSphereを初めて実行すると、ONTAP tools for VMware vSphereによって、ESXiホスト、そのLUNとNFSエクスポート、およびLUNとエクスポートを所有するNetAppストレージシステムが検出されます。 
+---
+= ストレージシステムとホストの検出
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vSphere ClientでONTAP tools for VMware vSphereを初めて実行すると、ESXiホスト、そのLUNとNFSエクスポート、およびそれらのLUNとエクスポートを所有するNetAppストレージシステムがONTAP Toolsによって検出されます。
+
+.開始する前に
+* すべてのESXiホストの電源をオンにして接続する必要があります。
+* 検出対象のすべてのStorage Virtual Machine（SVM）が実行されている必要があり、使用中のストレージプロトコル（NFSまたはiSCSI）用のデータLIFが各クラスタノードに少なくとも1つ設定されている必要があります。
+
+
+* このタスクについて *
+
+新しいストレージシステムの検出や既存のストレージシステムに関する情報の更新はいつでも実行でき、容量や構成に関する最新の情報を取得できます。ONTAP tools for VMware vSphereでストレージシステムへのログインに使用するクレデンシャルを変更することもできます。
+
+ストレージシステムを検出する際、ONTAP tools for VMware vSphereは、vCenter Serverインスタンスで管理しているESXiホストから情報を収集します。
+
+.手順
+. vSphere Clientの[ホーム]ページで、*[ホストおよびクラスタ]*を選択します。
+. 必要なデータセンターを右クリックし、* NetApp ONTAP tools *>* Update Host Data *を選択します。
++
+[*確認*（Confirm *）]ダイアログボックスで、選択内容を確認します。
+
+. 検出されたストレージコントローラのうち、ステータスがのものを選択し `Authentication Failure`、*[操作]*>*[変更]*を選択します。
+. [ストレージ・システムの変更]ダイアログ・ボックスに必要な情報を入力します
+.  `Authentication Failure`ステータスがのすべてのストレージコントローラについて、手順4と5を繰り返します。
+
+
+検出プロセスが完了したら、次の操作を実行します。
+
+* ONTAP tools for VMware vSphereを使用して、アダプタ設定、MPIO設定、またはNFS設定の列にアラートアイコンが表示されているホストのESXiホストを設定します。
+* ストレージシステムのクレデンシャルを入力します。
+

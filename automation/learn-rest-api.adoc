@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: automation/learn-rest-api.html 
+keywords: ontap tools vmware vsphere rest api 
+summary: ONTAP Tools for VMware vSphere 10は、仮想マシンのライフサイクル管理のための一連のツールです。これには、自動化プロセスの一部として使用できる堅牢なREST APIが含まれています。 
+---
+= ONTAP Tools for VMware vSphere 10 REST APIの詳細
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP Tools for VMware vSphere 10は、仮想マシンのライフサイクル管理のための一連のツールです。これには、自動化プロセスの一部として使用できる堅牢なREST APIが含まれています。
+
+
+
+== 基盤となるREST Webサービス
+
+Representational State Transfer（REST）は、WebサービスAPIの設計など、分散Webアプリケーションを作成するための形式です。サーバベースのリソースを公開し、その状態を管理するための一連のテクノロジを確立します。
+
+.リソースと状態の表示
+リソースはREST Webサービスアプリケーションの基本コンポーネントです。REST APIを設計する際の重要な初期タスクは次の2つです。
+
+* システムまたはサーバベースのリソースを特定する
+* リソースの状態および関連する状態遷移操作の定義
+
+
+クライアントアプリケーションは、明確に定義されたメッセージフローを通じてリソースの状態を表示および変更できます。
+
+.HTTP メッセージ
+Hypertext Transfer Protocol（HTTP）は、Webサービスのクライアントとサーバがリソースに関するメッセージの交換に使用するプロトコルです。一般的な操作であるCREATE、READ、UPDATE、およびDELETEに基づいてCRUDモデルに従います。HTTPプロトコルには、要求ヘッダーと応答ヘッダー、および応答ステータスコードが含まれています。
+
+.JSONデータのフォーマット
+使用できるメッセージ形式はいくつかありますが、最も一般的なオプションはJavaScript Object Notation（JSON）です。JSONは、単純なデータ構造をプレーンテキストで表現するための業界標準であり、リソースと必要なアクションを記述した状態情報を転送するために使用されます。
+
+.セキュリティ
+セキュリティはREST APIの重要な側面です。ネットワーク経由のHTTPトラフィックの保護に使用されるTransport Layer Security（TLS）プロトコルに加えて、ONTAP tools for VMware vSphere 10 REST APIも認証にアクセストークンを使用します。アクセストークンを取得し、以降のAPI呼び出しで使用する必要があります。
+
+.非同期要求のサポート
+ONTAP tools for VMware vSphere 10 REST APIは、ほとんどの要求を同期的に実行し、処理の完了時にステータスコードを返します。また、完了までに長い時間が必要なタスクの非同期処理もサポートされます。
+
+
+
+== ONTAP tools Manager環境
+
+ONTAP tools Manager環境には、いくつかの側面を考慮する必要があります。
+
+.仮想マシン
+ONTAP Tools for VMware vSphere 10は、vSphereリモートプラグインアーキテクチャを使用して導入されます。REST APIのサポートも含め、ソフトウェアは別の仮想マシンで実行されます。
+
+.ONTAP toolsのIPアドレス
+ONTAP tools for VMware vSphere 10は単一のIPアドレスを公開し、仮想マシンの機能へのゲートウェイを提供します。このアドレスは初期設定時に指定する必要があり、内部のロードバランサコンポーネントに割り当てられます。このアドレスは、ONTAP tools Managerのユーザインターフェイス、およびSwaggerのドキュメントページやREST APIに直接アクセスする際に使用されます。
+
+.2つのREST API
+ONTAP Tools for VMware vSphere 10 REST APIに加えて、ONTAPクラスタにも独自のREST APIがあります。ONTAP tools Managerは、ONTAP REST APIをクライアントとして使用してストレージ関連のタスクを実行します。これら2つのAPIは別個のものであることに注意することが重要です。詳細については、を参照してください https://docs.netapp.com/us-en/ontap-automation/["ONTAPの自動化"^]。

@@ -1,0 +1,97 @@
+---
+permalink: deploy/quick-start.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: ONTAP tools for VMware vSphereの使用を開始するには、いくつかの手順を実行します。 
+---
+= ONTAP Tools for VMware vSphereのクイックスタートガイド
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereの使用を開始するには、いくつかの手順を実行します。このクイックスタートガイドでは、ONTAP tools for VMware vSphereの初期セットアップについて説明します。
+
+まず、ONTAP tools for VMware vSphereを小規模なシングルノード構成として導入し、NFSデータストアとVMFSデータストアをサポートするためのコアサービスを提供します。vVolデータストアとハイアベイラビリティ（HA）を使用するように構成を拡張する必要がある場合は、このワークフローの完了後に拡張します。詳細については、を参照してlink:../deploy/ha-workflow.html["HA導入ワークフロー"]ください。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]導入計画
+[role="quick-margin-para"]
+vSphere、ONTAP、ESXiホストのバージョンがONTAP toolsのバージョンに対応していることを確認します。十分なCPU、メモリ、およびディスクスペースを割り当てます。セキュリティポリシーによっては、ネットワークトラフィックを許可するためにファイアウォールまたはその他のセキュリティアプライアンスの設定が必要になる場合があります。
+
+[role="quick-margin-para"]
+vCenter Serverがインストールされ、アクセス可能であることを確認します。
+
+[role="quick-margin-list"]
+* https://imt.netapp.com/matrix/#welcome["Interoperability Matrix Tool"]
+* link:../deploy/prerequisites.html["ONTAP tools for VMware vSphere導入の前提条件"]
+* link:../deploy/pre-deploy-checks.html["始める前に"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"]ONTAP Tools for VMware vSphereの導入
+[role="quick-margin-para"]
+まず、ONTAP tools for VMware vSphereを小規模なシングルノード構成として導入し、NFSおよびVMFSデータストアをサポートするためのコアサービスを提供します。vVolデータストアとハイアベイラビリティ（HA）を使用するように構成を拡張する場合は、このワークフローの完了後に拡張します。HA構成に拡張するには、CPUのホットアドオプションとメモリのホットプラグオプションが有効になっていることを確認する必要があります。
+
+[role="quick-margin-list"]
+* link:../deploy/ontap-tools-deployment.html["ONTAP Tools for VMware vSphereの導入"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]vCenter Serverインスタンスの追加
+[role="quick-margin-para"]
+ONTAP tools for VMware vSphereに1つ以上のvCenter Serverインスタンスを追加して、vCenter Server環境内の仮想データストアを設定、管理、保護します。
+
+[role="quick-margin-list"]
+* link:../configure/add-vcenter.html["vCenter Serverインスタンスの追加"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"]ONTAPユーザロールとPrivilegesの設定
+[role="quick-margin-para"]
+ONTAP tools for VMware vSphereに付属のJSONファイルを使用して、ストレージバックエンドを管理するための新しいユーザロールとPrivilegesを設定します。
+
+[role="quick-margin-list"]
+* link:../configure/configure-user-role-and-privileges.html["ONTAPユーザのロールと権限の設定"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["5 つ"]ストレージバックエンドの設定
+[role="quick-margin-para"]
+ONTAPクラスタにストレージバックエンドを追加します。vCenterが関連付けられたSVMのテナントとして機能するマルチテナンシーセットアップの場合は、ONTAP tools Managerを使用してクラスタを追加します。ストレージバックエンドをvCenter Serverに関連付けて、オンボードされたvCenter Serverインスタンスにグローバルにマッピングします。
+
+[role="quick-margin-para"]
+ONTAP toolsのユーザインターフェイスを使用して、ローカルストレージバックエンドをクラスタまたはSVMのクレデンシャルで追加します。これらのストレージバックエンドは1つのvCenterに限定されます。ローカルでクラスタのクレデンシャルを使用すると、関連付けられたSVMがvCenterに自動的にマッピングされてVVOLまたはVMFSが管理されます。SRAを含むVMFSの管理については、ONTAP toolsではグローバルクラスタを必要とせずにSVMクレデンシャルがサポートされます。
+
+[role="quick-margin-list"]
+* link:../configure/add-storage-backend.html["ストレージバックエンドを追加します"]
+* link:../configure/associate-storage-backend.html["ストレージバックエンドをvCenter Serverインスタンスに関連付ける"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6"]複数のvCenter Serverを使用している場合は、証明書をアップグレードします。
+[role="quick-margin-para"]
+複数のvCenter Serverを使用している場合は、自己署名証明書を認証局（CA）署名証明書にアップグレードします。
+
+[role="quick-margin-list"]
+* link:../manage/certificate-manage.html["証明書の管理"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7"]（オプション）SRA保護の有効化
+[role="quick-margin-para"]
+SRA機能を有効にして、ディザスタリカバリを設定し、NFSまたはVMFSデータストアを保護する。
+
+[role="quick-margin-list"]
+* link:../protect/configure-on-srm-appliance.html["VMware Live Site RecoveryアプライアンスでのSRAの設定"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["8つ"]（オプション）SnapMirrorアクティブ同期保護を有効にします。
+[role="quick-margin-para"]
+SnapMirror Active Syncのホストクラスタ保護を管理するために、ONTAP tools for VMware vSphereを設定します。SnapMirrorのアクティブな同期を行うには、ソースとデスティネーションのクラスタとSVMをペアリングします。これはVMFSデータストアにのみ該当します。
+
+[role="quick-margin-list"]
+* link:../configure/protect-cluster.html["ホストクラスタの保護を使用した保護"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-9.png["9つ"]ONTAP tools for VMware vSphere環境のバックアップとリカバリのセットアップ
+[role="quick-margin-para"]
+障害が発生した場合にセットアップをリカバリするために使用できる、ONTAP tools for VMware vSphereのセットアップのバックアップをスケジュールします。
+
+[role="quick-margin-list"]
+* link:../manage/enable-backup.html["バックアップの作成とONTAP toolsセットアップのリカバリ"]
+

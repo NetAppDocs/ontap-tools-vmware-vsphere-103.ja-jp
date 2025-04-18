@@ -1,0 +1,64 @@
+---
+permalink: release-notes/whats-new.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 10.3, ONTAP tools for VMware vSphere' 
+summary: ONTAP Tools for VMware vSphere 10.3の新機能について説明します。 
+---
+= ONTAP Tools for VMware vSphere 10.3の新機能
+:allow-uri-read: 
+
+
+[role="lead"]
+ONTAP Tools for VMware vSphere 10.3の新機能について説明します。
+
+[cols="30%,70%"]
+|===
+| 更新 | 説明 
+
+
+ a| 
+新しいプラットフォームとアプリケーションのバージョンをサポート
+ a| 
+ONTAP Tools for VMware vSphere 10.3では、次のプラットフォームおよびアプリケーションバージョンがサポートされるようになりました。
+
+* ONTAP 9.16.0以降
+* VMware vSphere 8.0 U3
+* VMware Live Site Recovery 9.0
+
+
+
+
+ a| 
+導入の容易さ
+ a| 
+シングルノードクラスタに最小要件でONTAP tools for VMware vSphere 10.3を導入し、ハイアベイラビリティ（HA）環境またはマルチノード環境に更新できるようになりました。
+
+
+
+ a| 
+シームレスなプロビジョニングと設定
+ a| 
+ONTAP tools for VMware vSphere 10.3では、Tridentに関連する依存関係が解消され、動的ストレージプロビジョニングツールを使用してシームレスなプロビジョニングと設定が可能になりました。
+
+
+
+ a| 
+REST API認証のセキュリティの強化
+ a| 
+ONTAP tools for VMware vSphere 10.3では、より高度なセキュリティを実現するために、ONTAP tools REST APIとユーザインターフェイス用のCA署名証明書に依存するようになりました。
+
+
+
+ a| 
+ASA R2システムのサポート
+ a| 
+ONTAP Tools for VMware vSphere 10.3では、ASA R2システムでのVMFSデータストアのプロビジョニングがサポートされており、SnapMirror Active SyncおよびSRA / VMware Live Site Recoveryを使用してVMFSデータストアを保護できます。
+
+
+
+ a| 
+オブザーバビリティの向上
+ a| 
+ONTAP tools for VMware vSphere 10.3では、VMFSデータストア、VVolデータストア、およびそれぞれのVMのオブザーバビリティ指標のサポートが拡張されました。
+
+|===

@@ -1,0 +1,20 @@
+---
+permalink: manage/reports.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP Tools for VMware vSphereプラグインは、仮想マシンとデータストアのレポートを提供します。 
+---
+= ONTAP toolsレポート
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP Tools for VMware vSphereプラグインは、仮想マシンとデータストアのレポートを提供します。vCenterクライアントのショートカットセクションでNetApp ONTAP tools for VMware vSphereプラグインのアイコンを選択すると、ユーザインターフェイスが概要ページに移動します。[レポート]タブを選択して、仮想マシンとデータストアのレポートを表示します。
+
+Virtual Machinesレポートには、検出された仮想マシン（ONTAPストレージベースのデータストアのディスクが少なくとも1本必要）のリストとパフォーマンス指標が表示されます。VMレコードを展開すると、ディスクに関連するすべてのデータストア情報が表示されます。
+
+データストアレポートには、すべてのタイプのONTAPストレージバックエンドからプロビジョニングされた、VMware vSphereで管理されるデータストアで検出または認識されるONTAPツールのリストと、パフォーマンス指標が表示されます。
+
+[列の管理]オプションを使用すると、さまざまな列の表示と非表示を切り替えることができます。

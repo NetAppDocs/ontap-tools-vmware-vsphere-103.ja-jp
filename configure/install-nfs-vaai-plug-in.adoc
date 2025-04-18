@@ -1,0 +1,57 @@
+---
+permalink: configure/install-nfs-vaai-plug-in.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP tools for VMware vSphereを使用して、NetApp NFS Plug-in for VMware vStorage APIs for Array Integration\（VAAI\）をインストールできます。 
+---
+= NFS VAAIプラグインをインストールする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS vStorage API for Array Integration（NFS VAAI）プラグインは、VMware vSphereとNFSストレージアレイを統合するソフトウェアコンポーネントです。ONTAP tools for VMware vSphereを使用してNFS VAAIプラグインをインストールし、NFSストレージアレイの高度な機能を活用して、特定のストレージ関連処理をESXiホストからストレージアレイ自体にオフロードします。
+
+.開始する前に
+* インストールパッケージをダウンロードし https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["NetApp NFS Plug-in for VMware VAAI"]ます。
+* ESXiホスト7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。
+* NFSデータストアをマウント
+* DataMover.HardwareAcceleratedMove、DataMover.HardwareAcceleratedInit、およびVMFS3.HardwareAcceleratedLockingのホスト設定の値を「1」に設定します。これらの値を自動的に設定するには、EXSiホストの推奨設定を適用します。を参照してください link:../configure/configure-esx-server-multipath-and-timeout-settings.html["ESXiサーバのマルチパスとタイムアウトの設定"]。
+* vserver nfs modify -vserver vserver_name -vstorage enabledコマンドを使用して、Storage Virtual Machine（SVM）でvstorageオプションを有効にします。
+* vSphere 7.0U3の最新のパッチリリースがインストールされていることを確認します。
+* vSphere 8.xは、NetApp NFS VAAIプラグイン2.0.1（ビルド16）でサポートされます。
+
+
+.手順
+. vSphere Clientにログインします。
+. プラグインセクションで*ショートカット*>* NetApp ONTAP tools *を選択します。
+. [設定]*>*[NFS VAAIツール]*を選択します。
+. VAAIプラグインをvCenter Serverにアップロードしたら、* Existing version *セクションで* Change *を選択します。VAAIプラグインがvCenter Serverにアップロードされていない場合は、*[アップロード]*ボタンを選択します。
+. ファイルを参照して選択し `.vib`、*アップロード*を選択してファイルをONTAPツールにアップロードします。
+. [ESXiホストにインストール]*を選択し、NFS VAAIプラグインをインストールするESXiホストを選択して、*[インストール]*を選択します。
++
+プラグインのインストールに適したESXiホストのみが表示されます。インストールの進捗状況は、vSphere Web Clientの[Recent tasks]セクションで監視できます。
+
+. インストールの完了後にESXiホストを手動で再起動する必要があります。
++
+VMware管理者がESXiホストを再起動すると、ONTAP Tools for VMware vSphereによってNFS VAAIプラグインが自動的に検出されて有効になります。
+
+
+
+.次の手順
+NFS VAAIプラグインをインストールしてESXiホストをリブートしたら、VAAIコピーオフロード用の正しいNFSエクスポートポリシーを設定する必要があります。NFS環境でVAAIを設定する場合は、次の要件を考慮してエクスポートポリシールールを設定します。
+
+* 関連するONTAPボリュームでNFSv4呼び出しを許可する必要があります。
+* rootユーザはrootのままにし、すべてのジャンクションの親ボリュームでNFSv4が許可されている必要があります。
+* 該当するNFSサーバでVAAIサポートのオプションを設定する必要があります。
+
+
+手順の詳細については https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload["VAAIコピーオフロードの正しいNFSエクスポートポリシーを設定する"]、技術情報アーティクルを参照してください。
+
+.関連情報
+https://docs.netapp.com/us-en/ontap/nfs-admin/support-vmware-vstorage-over-nfs-concept.html["VMware vStorage over NFSのサポート"]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/enable-disable-nfsv40-task.html["NFSv4.0を有効または無効にする"]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-nfsv42-concept.html#nfs-v4-2-security-labels["NFSv4 4.2 の ONTAP サポート"]

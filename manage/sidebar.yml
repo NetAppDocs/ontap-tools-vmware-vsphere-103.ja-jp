@@ -1,0 +1,92 @@
+---
+section: manage
+title: ONTAP Tools for VMware vSphereを管理します。
+entries:
+- title: ONTAP Tools for VMware vSphereダッシュボードの概要
+  url: "/configure/dashboard-overview.html"
+- title: ONTAP tools Managerユーザインターフェイス
+  url: "/configure/manager-user-interface.html"
+- title: ONTAP Tools for VMware vSphereサービスを有効にする
+  url: "/manage/enable-services.html"
+- title: ONTAP Tools for VMware vSphereの設定の変更
+  url: "/manage/edit-appliance-settings.html"
+- title: データストアの管理
+  entries:
+  - title: NFSおよびVMFSデータストアのマウント
+    url: "/manage/mount-datastores-on-host.html"
+  - title: NFSおよびVMFSデータストアのアンマウント
+    url: "/manage/unmount-datastores-on-host.html"
+  - title: vVolデータストアのマウント
+    url: "/manage/mount-a-vvols-datastore.html"
+  - title: NFSおよびVMFSデータストアのサイズ変更
+    url: "/manage/resize-datastores.html"
+  - title: vVolデータストアの拡張
+    url: "/manage/expand-storage-of-vvol-datastore.html"
+  - title: vVolデータストアの縮小
+    url: "/manage/remove-storage-from-a-vvols-datastore.html"
+  - title: データストアの削除
+    url: "/manage/delete-ds.html"
+  - title: データストアのONTAPストレージビュー
+    url: "/manage/storage-view-datastore.html"
+  - title: 仮想マシンストレージビュー
+    url: "/manage/virtual-machine-storage-view-datastore.html"
+- title: ストレージのしきい値の管理
+  url: "/manage/manage-storage-threshold.html"
+- title: ストレージバックエンドを管理
+  url: "/manage/storage-backend.html"
+- title: vCenter Serverインスタンスの管理
+  url: "/manage/manage-vcenter.html"
+- title: 証明書の管理
+  url: "/manage/certificate-manage.html"
+- title: ONTAP Tools for VMware vSphereメンテナンスコンソールへのアクセス
+  entries:
+  - title: ONTAP Tools for VMware vSphereメンテナンスコンソールの概要
+    url: "/manage/maintenance-console.html"
+  - title: リモート診断アクセスの設定
+    url: "/manage/configure-remote-diagnostic-access.html"
+  - title: 他のノードでSSHを開始する
+    url: "/manage/start-the-ssh-on-other-nodes.html"
+  - title: vCenterサーバとONTAPクレデンシャルを更新する
+    url: "/manage/update-vcenter-credentials.html"
+- title: ONTAP toolsレポート
+  url: "/manage/reports.html"
+- title: ログファイルを収集する
+  url: "/manage/collect-the-log-files.html"
+- title: 仮想マシンの管理
+  entries:
+  - title: 仮想マシンの移行またはクローニングに関する考慮事項
+    url: "/manage/migrate-virtual-machines.html"
+  - title: NFSおよびVMFSデータストアを使用する仮想マシンをvVolデータストアに移行する
+    url: "/manage/migrate-standard-virtual-machines-to-vvols-datastores.html"
+  - title: VASAのクリーンアップ
+    url: "/manage/delete-virtual-machines.html"
+- title: ストレージシステムとホストの検出
+  url: "/configure/discover-storage-systems-and-hosts.html"
+- title: ESXiホストの設定を変更
+  url: "/manage/edit-esxi-host-settings.html"
+- title: パスワードを管理します
+  entries:
+  - title: ONTAP tools Managerのパスワードの変更
+    url: "/manage/change-manager-password.html"
+  - title: ONTAP tools Managerのパスワードのリセット
+    url: "/manage/reset-manager-password.html"
+  - title: アプリケーションユーザパスワードのリセット
+    url: "/manage/reset-app-password.html"
+  - title: メンテナンスコンソールのユーザパスワードのリセット
+    url: "/manage/reset-maint-password.html"
+- title: ホストクラスタの保護を管理します。
+  entries:
+  - title: ホストクラスタの保護を変更
+    url: "/manage/edit-hostcluster-protection.html"
+  - title: ホストクラスタの保護の解除
+    url: "/manage/delete-hostcluster-protection.html"
+- title: AutoSupportを無効にする
+  url: "/manage/disable-autosupport.html"
+- title: AutoSupportプロキシURLの更新
+  url: "/manage/update-proxyurl.html"
+- title: バックアップの作成とセットアップのリカバリ
+  url: "/manage/enable-backup.html"
+- title: ONTAP Tools for VMware vSphereのアンインストール
+  url: "/manage/uninstall-deployment.html"
+- title: FlexVolボリュームを削除する
+  url: "/manage/delete-deployment.html"

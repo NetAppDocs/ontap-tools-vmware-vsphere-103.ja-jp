@@ -1,0 +1,16 @@
+---
+section: deploy
+title: ONTAP Tools for VMware vSphereの導入
+entries:
+- title: ONTAP Tools for VMware vSphereのクイックスタートガイド
+  url: "/deploy/quick-start.html"
+- title: ハイアベイラビリティ（HA）導入ワークフロー
+  url: "/deploy/ha-workflow.html"
+- title: 前提条件
+  url: "/deploy/prerequisites.html"
+- title: 始める前に
+  url: "/deploy/pre-deploy-checks.html"
+- title: ONTAP Tools for VMware vSphereの導入
+  url: "/deploy/ontap-tools-deployment.html"
+- title: 導入エラーコード
+  url: "/deploy/deployment-error-codes.html"

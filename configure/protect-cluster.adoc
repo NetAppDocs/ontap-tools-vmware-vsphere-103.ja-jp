@@ -1,0 +1,51 @@
+---
+permalink: configure/protect-cluster.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: ONTAP Tools for VMware vSphereは、ホストクラスタの保護を管理します。 
+---
+= ホストクラスタの保護を使用した保護
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereは、ホストクラスタの保護を管理します。選択したSVMに属し、クラスタの1つ以上のホストにマウントされているすべてのデータストアが、ホストクラスタで保護されます。
+
+.開始する前に
+次の前提条件が満たされていることを確認します。
+
+* ホストクラスタには、1つのSVMのデータストアだけが含まれます。
+* ホストクラスタにマウントされたデータストアは、クラスタ外のどのホストにもマウントしないでください。
+* ホストクラスタにマウントするデータストアは、iSCSI / FCプロトコルのVMFSデータストアである必要があります。NVMe/FCプロトコルおよびNVMe/TCPプロトコルのvVol、NFS、またはVMFSデータストアはサポートされていません。
+* ホストクラスタにマウントされたデータストアを形成しているFlexVol / LUNを、既存の整合グループ（CG）に含めないでください。
+* ホストクラスタにマウントされているデータストアを形成するFlexVol / LUNを、既存のSnapMirror関係に含めないでください。
+* ホストクラスタには少なくとも1つのデータストアが必要です。
+
+
+.手順
+. vSphere Clientにログインします。
+. ホストクラスタを右クリックし、* NetApp ONTAP tools *>* Protect Cluster *を選択します。
+. [クラスタの保護]ウィンドウで、データストアタイプとソースStorage Virtual Machine（VM）の詳細が自動的に入力されます。[データストア]リンクを選択して保護されているデータストアを表示します。
+. 整合グループ名*を入力します。
+. [関係の追加]*を選択します。
+. [ SnapMirror関係の追加]*ウィンドウで、*[ターゲットStorage VM]*と*[ポリシー]*タイプを選択します。
++
+ポリシータイプはAsynchronousまたはAutomatedFailOverDuplexのいずれかです。
+
++
+SnapMirror関係をAutomatedFailOverDuplexタイプのポリシーとして追加する場合は、ONTAP tools for VMware vSphereが導入されているvCenterに、ストレージバックエンドとしてターゲットStorage VMを追加する必要があります。
+
++
+AutomatedFailOverDuplexポリシータイプには、均一なホスト設定と非均一なホスト設定があります。[ホストの均一設定]トグルボタンを選択すると、ホストイニシエータグループの設定がターゲットサイトに暗黙的にレプリケートされます。詳細については、を参照してください link:../concepts/ontap-tools-concepts-terms.html["主要な概念と用語"]。
+
+. 不均一なホスト構成を選択した場合は、そのクラスタ内の各ホストのホストアクセス（ソース/ターゲット）を選択します。
+. 「 * 追加」を選択します。
+. [クラスタの保護]*ウィンドウでは、作成処理中に保護されたクラスタを編集することはできません。保護を再度削除して追加することができます。ホストクラスタの保護を変更する処理では、編集オプションを使用できます。省略記号のメニューオプションを使用して、関係を編集または削除できます。
+. [保護]*ボタンを選択します。
++
+vCenterタスクがジョブIDの詳細で作成され、[Recent Tasks]パネルに進捗状況が表示されます。これは非同期タスクです。ユーザーインターフェイスにはリクエスト送信ステータスのみが表示され、タスクが完了するのを待たずに表示されます。
+
+. 保護されているホストクラスタを表示するには、* NetApp ONTAP tools *>* Protection *>* Host cluster relationships *に移動します。
+

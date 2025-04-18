@@ -1,0 +1,200 @@
+---
+permalink: deploy/prerequisites.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: ONTAP tools for VMware vSphereを導入する前に、導入パッケージのスペース要件とホストシステムのいくつかの基本的な要件を理解しておく必要があります。 
+---
+= ONTAP tools for VMware vSphere導入の前提条件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereを導入する前に、導入パッケージのスペース要件とホストシステムのいくつかの基本的な要件を理解しておく必要があります。
+
+ONTAP Tools for VMware vSphereは、VMware vCenter Server Virtual Appliance（vCSA）で使用できます。ONTAP Tools for VMware vSphereは、ESXiシステムを含むサポートされているvSphere Clientに導入する必要があります。
+
+
+
+== システム要件
+
+* *ノードあたりのインストールパッケージのスペース要件*
++
+** シンプロビジョニング環境の場合は15GB
+** シックプロビジョニングの場合は348GB
+
+
+* *ホストシステムのサイジング要件*導入規模に応じた推奨メモリは次の表のとおりです。
+
+
+|===
+
+
+| *展開の種類* | * CPU * | *メモリ（GB）* | *シックプロビジョニングされたディスクスペース（GB）* 
+
+
+| 非HA（小規模） | 9 | 18 | 350 
+
+
+| 非HAメディア | 13 | 26 | 350 
+
+
+| 小規模HA構成（3ノードの累積） | 27 | 54 | 1050 
+
+
+| HA中規模（3ノードの累積） | 39 | 78 | 1050 
+
+
+| 大規模なHA構成（3ノードの累積） | 51 | 102 | 1050 
+|===
+
+
+== ストレージとアプリケーションの最小要件
+
+|===
+| ストレージ、ホスト、およびアプリケーション | 最小バージョン要件 
+
+
+| ONTAP | 9.14.1、9.15.1、および9.16.0。FAS、ASA Aシリーズ、ASA Cシリーズ、AFF Aシリーズ、AFF Cシリーズ、およびASA R2。 
+
+
+| ESXiホスト | ESXi 7.0.3 
+
+
+| vCenterサーバ | vCenter 7.0U3 
+
+
+| VASA Provider | 3.0 
+
+
+| OVAアプリケーション | 10.3 
+|===
+サポートされるONTAP、vCenter Server、ESXiホスト、およびプラグインアプリケーションのバージョンの最新情報については、Interoperability Matrix Tool（IMT）を参照してください。
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT["Interoperability Matrix Tool"^]
+
+
+
+== ONTAP tools for VMware vSphereを導入するための構成の制限
+
+次の表は、VMware vSphere用のONTAP toolsを設定する際のガイドとして使用できます。
+
+|===
+
+
+| * 導入 * | * タイプ * | * VVOLの数* | *ホスト数* 
+
+
+| HA 認定外 | 小（S） | ~12、000 | 32 
+
+
+| HA 認定外 | 中（M） | 最大24、000 | 64 
+
+
+| 高可用性 | 小（S） | 最大24、000 | 64 
+
+
+| 高可用性 | 中（M） | ~50k | 128 
+
+
+| 高可用性 | 大（L） | ~100k | 256 [注]表のホスト数は、複数のvCenterからのホストの総数を示しています。 
+|===
+
+
+== ONTAP Tools for VMware vSphere - Storage Replication Adapter（SRA）
+
+次の表に、ONTAP tools for VMware vSphereを使用したVMware Live Site Recoveryインスタンスごとにサポートされる数を示します。
+
+|===
+| * vCenterの導入規模* | *小さい* | *中* 
+
+
+| アレイベースのレプリケーションを使用した保護用に構成された仮想マシンの総数 | 2000 | 5000 
+
+
+| アレイベースのレプリケーション保護グループの総数 | 250 | 250 
+
+
+| リカバリプランあたりの保護グループの総数 | 50 | 50 
+
+
+| レプリケートされたデータストア数 | 255 | 255 
+
+
+| VM数 | 4000 | 7000 
+|===
+次の表に、VMware Live Site Recoveryの数と、VMware vSphereの導入規模に対応するONTAPツールを示します。
+
+|===
+
+
+| * VMware Live Site Recoveryインスタンスの数* | * ONTAPツールの導入規模* 
+
+
+| 最大4 | 小規模 
+
+
+| 4～8 | 中 
+
+
+| 8人以上 | 大規模 
+|===
+詳細については、を参照してください https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html["VMware Live Site Recoveryの運用上の制限"]。
+
+
+
+== ポートの要件
+
+次の表に、NetAppで使用されるネットワークポートとその目的を示します。システム内での適切な操作と通信を容易にするために、これらのポートが開いていてアクセス可能であることを確認してください。関連するサービスが正しく機能するために、これらのポート上のトラフィックを許可するために必要なネットワーク構成が設定されていることを確認します。セキュリティポリシーによっては、ファイアウォールやその他のセキュリティアプライアンスを設定して、ネットワーク内でこのトラフィックを許可する必要があります。
+
+|===
+
+
+| * ポート * | * 概要 * 
+
+
+| 22（TCP） | Ansibleは、クラスタのプロビジョニング時の通信にこのSSHポートを使用します。このポートは、HA構成の場合、メンテナンスユーザのパスワードやステータスメッセージの変更、3つすべてのノードの値の更新などの機能で必要になります。 
+
+
+| 443（TCP） | VASA Providerサービスの受信通信用のパススルーポートです。VASA Providerの自己署名証明書とカスタムCA証明書はこのポートでホストされています。 
+
+
+| 8443（TCP） | このポートは、swaggerとManagerユーザインターフェイスアプリケーションを使用してAPIドキュメントをホストします。 
+
+
+| 2379（TCP） | これは、GET、PUT、DELETE、etcdキー値ストア内のキーの監視などのクライアント要求のデフォルトポートです。 
+
+
+| 2380（TCP） | これは、etcdがデータレプリケーションと整合性のために依存するraft consensusアルゴリズムに使用されるetcdクラスタのサーバ間通信のデフォルトポートです。 
+
+
+| 7472（TCP + UDP） | Prometheus指標のサービスポートです。 
+
+
+| 7946（TCP + UDP） | このポートは、Dockerのコンテナネットワーク検出に使用されます。 
+
+
+| 9083（TCP） | このポートは、VASA Providerサービスで内部的に使用されるサービスポートです。 
+
+
+| 1162（UDP） | これはSNMPトラップパケットポートです。 
+
+
+| 6443（TCP） | ソース：RKE2エージェントノード。宛先：REK2サーバノード。説明：Kubernetes API 
+
+
+| 9345（TCP） | ソース：RKE2エージェントノード。宛先：REK2サーバノード。説明:REK2スーパーバイザAPI 
+
+
+| 8472（TCP + UDP） | フランネルVXLANを使用する場合、すべてのノードがUDPポート8472を介して他のノードに到達できる必要があります。ソース：すべてのRKE2ノード。宛先：すべてのREK2ノード。説明：VXLANを使用したCanal CNI 
+
+
+| 10250（TCP） | ソース：すべてのRKE2ノード。宛先：すべてのREK2ノード。説明：Kubelet指標 
+
+
+| 30000～32767（TCP） | ソース：すべてのRKE2ノード。宛先：すべてのREK2ノード。説明：NodePortポート範囲 
+
+
+| 123（TCP） | ntpdはこのポートを使用してNTPサーバの検証を実行します。 
+|===

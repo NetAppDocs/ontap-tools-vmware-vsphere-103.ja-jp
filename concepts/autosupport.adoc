@@ -1,0 +1,18 @@
+---
+permalink: concepts/autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: AutoSupportは、システムヘルスをプロアクティブに監視し、NetAppテクニカルサポート、社内のサポート部門、およびサポートパートナーにメッセージを自動的に送信するメカニズムです。 
+---
+= AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupportは、システムヘルスをプロアクティブに監視し、NetAppテクニカルサポート、社内のサポート部門、およびサポートパートナーにメッセージを自動的に送信するメカニズムです。
+
+AutoSupportは、ストレージシステムの初回設定時にデフォルトで有効になります。AutoSupportは、AutoSupportが有効になってから24時間後にテクニカルサポートへのメッセージ送信を開始します。
+
+AutoSupportは、メンテナンスコンソールのオプション*[アプリケーションの設定]*>*[ AutoSupportの無効化]*を使用して無効にできます。有効のままにしておくことをお勧めします。AutoSupportを有効にすると、問題の検出時間が短縮され、解決までの時間が短縮されます。AutoSupportが無効になっている場合でも、AutoSupportの情報が収集されてローカルに格納されます。ただし、レポートはどのネットワークにも送信されません。最初のVMのメンテナンスコンソールを使用してプロキシのURLを指定する必要があります。[Application Configuration]*>*[Update AutoSupport proxy URL]*オプションを使用して、プロキシのURLを入力します。

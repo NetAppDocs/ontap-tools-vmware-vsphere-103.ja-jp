@@ -1,0 +1,25 @@
+---
+permalink: manage/expand-storage-of-vvol-datastore.html 
+sidebar: sidebar 
+keywords: virtual volume datastores 
+summary: 'vCenterオブジェクトビューでデータストアオブジェクトを右クリックすると、[plug-in]セクションにONTAP tools for VMware vSphereでサポートされるアクションが表示されます。' 
+---
+= vVolデータストアの拡張
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenterオブジェクトビューでデータストアオブジェクトを右クリックすると、[plug-in]セクションにONTAP tools for VMware vSphereでサポートされるアクションが表示されます。データストアのタイプと現在のユーザ権限に応じて、特定の操作が有効になります。
+
+
+NOTE: vVolデータストアの拡張処理は、ASA R2ベースのvVolデータストアでは実行できません。
+
+.手順
+. vSphere Clientの[ホーム]ページで、*[ホストおよびクラスタ]*を選択します。
+. ナビゲーションペインで、データストアを含むデータセンターを選択します。
+. データストアを右クリックし、* NetApp ONTAP tools *>* Add storage to datastore *を選択します。
+. [ボリュームの作成または選択]*ウィンドウで、新しいボリュームを作成するか、既存のボリュームから選択できます。ユーザインターフェイスはわかりやすいもので、選択した手順に従ってください。
+. [サマリ]*ウィンドウで、選択内容を確認し、*[展開]*を選択します。進捗状況は、[最近のタスク]パネルで追跡できます。
+

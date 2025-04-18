@@ -1,0 +1,59 @@
+---
+permalink: concepts/rbac-vcenter-environment.html 
+sidebar: sidebar 
+keywords: vcenter, vcenter server, vcenter server rbac, rbac environment 
+summary: VMware vCenter ServerにはRBAC機能が用意されており、vSphereオブジェクトへのアクセスを制御できます。これは、vCenterの一元化された認証および許可セキュリティサービスの重要な部分です。 
+---
+= vCenter Server RBAC環境とONTAP Tools for VMware vSphere 10
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vCenter ServerにはRBAC機能が用意されており、vSphereオブジェクトへのアクセスを制御できます。これは、vCenterの一元化された認証および許可セキュリティサービスの重要な部分です。
+
+
+
+== vCenter Serverアクセス許可の図
+
+アクセス許可は、vCenter Server環境でアクセス制御を適用するための基盤です。これは、アクセス許可の定義に含まれるユーザまたはグループを含むvSphereオブジェクトに適用されます。次の図に、vCenterアクセス許可の概要を示します。
+
+image:vc-permission.png["vCenterケンケン"]
+
+
+
+== vCenter Serverアクセス許可のコンポーネント
+
+vCenter Serverアクセス許可は、アクセス許可の作成時にバインドされる複数のコンポーネントで構成されるパッケージです。
+
+
+
+=== vSphereオブジェクト
+
+アクセス許可はvSphereオブジェクトに関連付けられます。vCenter Server、ESXiホスト、仮想マシン、データストア、データセンター、フォルダなどがあります。vCenter Serverは、オブジェクトに割り当てられた権限に基づいて、各ユーザまたはグループがそのオブジェクトに対して実行できる操作またはタスクを決定します。ONTAP tools for VMware vSphereに固有のタスクについては、すべてのアクセス許可がvCenter Serverのルートフォルダレベルまたはルートフォルダレベルで割り当てられ、検証されます。詳細については、を参照してください link:../concepts/rbac-vcenter-use.html["vCenter ServerでRBACを使用する"] 。
+
+
+
+=== Privilegesとロール
+
+ONTAP Tools for VMware vSphere 10で使用されるvSphere Privilegesには、2つのタイプがあります。この環境でのRBACの使用を簡易化するために、ONTAP toolsには、必要なネイティブおよびカスタムのPrivilegesを含むロールが用意されています。Privilegesには以下が含まれます。
+
+* vCenter Server Privileges標準
++
+これはvCenter Serverが提供するPrivilegesです。
+
+* ONTAP tools固有のPrivileges
++
+これらは、ONTAP Tools for VMware vSphereに固有のカスタムPrivilegesです。
+
+
+
+
+
+=== ユーザとグループ
+
+ユーザとグループは、Active DirectoryまたはローカルのvCenter Serverインスタンスを使用して定義できます。ロールと組み合わせて、vSphereオブジェクト階層内のオブジェクトに対する権限を作成できます。この権限は、関連付けられたロールのPrivilegesに基づいてアクセスを許可します。役割は、個別にユーザーに直接割り当てられるわけではないことに注意してください。代わりに、ユーザとグループは、より大きなvCenter Serverアクセス許可の一部としてPrivilegesロールを使用してオブジェクトにアクセスできます。

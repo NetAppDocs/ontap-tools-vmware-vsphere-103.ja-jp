@@ -1,0 +1,43 @@
+---
+permalink: release-notes/ontap-tools-9-ontap-tools-10-feature-comparison.html 
+sidebar: sidebar 
+keywords: release notes, feature, comparison 
+summary: ONTAP Tools for VMware vSphere 9とONTAP Tools for VMware vSphere 10の機能比較について説明します。 
+---
+= ONTAP Tools for VMware vSphere 9とONTAP Tools for VMware vSphere 10の機能比較
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere 9からONTAP tools for VMware vSphere 10.1以降のバージョンへの移行がお客様に適しているかどうかをご確認ください。互換性に関する最新情報については、を参照してください https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool"^]。
+
+[cols="20%,25%,25%,30%"]
+|===
+| 機能 | ONTAPツール9.13 | ONTAPツール10.1 | ONTAPツール10.2以降 
+
+
+| 主な価値提案 | 強化されたセキュリティ、コンプライアンス、自動化機能により、運用開始から運用を合理化、簡易化 | 高可用性、パフォーマンス、拡張性の制限を拡張しながら、ONTAP tools 10.xを9.xパリティに移行 | VMFSとVVOLのFC、VMFSのみのNVMe-oF / FC、NVMe-oF / TCPのサポートが拡張されました。NetApp SnapMirrorの使いやすさ、vSphereメトロストレージクラスタのシンプルなセットアップ、3サイトのVMware Live Site Recoveryのサポート 
+
+
+| ONTAPリリースの認定 | ONTAP 9 .9.1からONTAP 9 .15.1へ | ONTAP 9 .12.1からONTAP 9 .14.1へ | ONTAP 9.12.1からONTAP 9.15.1（ONTAP tools 10.2用）ONTAP 9.14.1、9.15.1、および9.16.0（ONTAP tools 10.3用） 
+
+
+| VMwareリリースのサポート | vSphere 7.x-8.x VMware Site Recovery Manager（SRM）8.5からVMware Live Site Recovery 9.0へ | vSphere 7.x-8.x VMware Site Recovery Manager（SRM）8.7からVMware Live Site Recovery 9.0へ | vSphere 7.x-8.x VMware Site Recovery Manager（SRM）8.7からVMware Live Site Recovery 9.0へ 
+
+
+| プロトコルのサポート | NFSおよびVMFSデータストア：NFS（v3およびv4.1）、VMFS（iSCSIおよびFCP）vVolデータストア：iSCSI、FCP、NVMe/FC、NFS v3 | NFSおよびVMFSデータストア：NFS（v3およびv4.1）、VMFS（iSCSI）vVolデータストア：iSCSI、NFS v3 | NFSおよびVMFSデータストア：NFS（v3およびv4.1）、VMFS（iSCSI/FCP/NVMe-oF）vVolデータストア：iSCSI、FCP、NFS v3 
+
+
+| 拡張性 | ホストとVM：300台のホスト、最大10、000台のVMデータストア：NFS 600、VMFS 50、VVOL最大250、VVOL最大14、000 | ホストとVM：600台のホストVVol：最大14、000 | ホストとVM：600台のホストVVol：最大14、000 
+
+
+| オブザーバビリティ | パフォーマンス、容量、ホストコンプライアンスのダッシュボードVMとデータストアの動的なレポート | パフォーマンス、容量、ホストコンプライアンスに関するダッシュボードが更新されました。Dynamic VMとデータストアに関するレポートが更新されました。 | パフォーマンス、容量、ホストコンプライアンスに関するダッシュボードが更新されました。Dynamic VMとデータストアに関するレポートが更新されました。 
+
+
+| データ保護 | VMFS用とNFS用のSRAレプリケーションFlexVolベースのレプリケーションでvVol SCVを統合し、バックアップに相互運用可能 | iSCSI VMFSデータストアおよびNFS v3データストア用のSRAレプリケーション | iSCSI VMFSおよびNFS v3データストア用のSRAレプリケーションSMASとVMware Live Site Recoveryを組み合わせた3サイト保護。 
+
+
+| VASA Providerのサポート | VASA 4.0 | VASA 3.0 | VASA 3.0 
+|===

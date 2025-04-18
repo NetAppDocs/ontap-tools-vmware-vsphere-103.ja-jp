@@ -1,0 +1,127 @@
+---
+permalink: manage/edit-hostcluster-protection.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: 保護対象ホストクラスタのSnapMirror関係を編集することができます。関係を追加、変更、および削除できます。ただし、整合グループ名は編集できません。 
+---
+= 保護されているホストクラスタを変更
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+保護の変更の一環として次のタスクを実行できます。同じワークフロー内ですべての変更を実行できます。
+
+* 保護対象のクラスタに新しいデータストアまたはホストを追加します。
+* 新しいSnapMirror関係を保護設定に追加します。
+* 保護設定から既存のSnapMirror関係を削除します。
+* 既存のSnapMirror関係を変更します。
+
+
+
+
+== ホストクラスタ保護の監視
+
+ホストクラスタ保護のステータスを監視するには、次の手順を実行します。保護されているすべてのホストクラスタを、保護状態、SnapMirror関係、データストア、および対応するSnapMirrorステータスとともに監視できます。
+
+.手順
+. vSphere Clientにログインします。
+. NetApp ONTAP tools *>*[保護]*>*[ホストクラスタ関係]*に移動します。
++
+保護列の下にあるアイコンには、保護のステータスが表示されます。
+
+. アイコンにカーソルを合わせると、詳細が表示されます。
+
+
+
+
+== 新しいデータストアまたはホストの追加
+
+新しく追加したデータストアまたはホストを保護するには、次の手順を実行します。vCenterの標準ユーザインターフェイスを使用して、保護対象クラスタに新しいホストを追加したり、ホストクラスタに新しいデータストアを作成したりできます。
+
+.手順
+. vSphere Clientにログインします。
+. 保護されたクラスタのプロパティを編集するには、次のいずれかを実行します。
++
+.. NetApp ONTAP tools *>* Protection *>* Host cluster relationships *に移動し、クラスタの省略記号メニューを選択して* Edit *または
+.. ホストクラスタを右クリックし、* NetApp ONTAP tools *>* Protect Cluster *を選択します。
+
+
+. vCenterの標準ユーザインターフェイスで作成したデータストアは、unprotectedと表示されます。ユーザインターフェイスのダイアログボックスに、クラスタ内のすべてのデータストアとその保護ステータスが表示されます。完全な保護を有効にするには、*[保護]*ボタンを選択します。
+. 新しいESXiホストを追加した場合は、保護ステータスがPartially protectedと表示されます。SnapMirror設定の下にある省略記号のメニューを選択し、*[編集]*を選択して、新たに追加したESXiホストとの距離を設定します。
++
+
+NOTE: タイプが非同期の関係の場合、3番目のサイトのターゲットSVMを同じONTAP toolsインスタンスに追加することはできないため、編集操作はサポートされません。ただし、関係の設定は、ターゲットSVMのシステムマネージャまたはCLIを使用して変更できます。
+
+. 必要な変更を行ったら、*[保存]*を選択します。
+. 変更は*[クラスタの保護]*ウィンドウで確認できます。
+
+
+vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況を追跡できます。
+
+
+
+== 新しいSnapMirror関係を追加する
+
+.手順
+. vSphere Clientにログインします。
+. 保護されたクラスタのプロパティを編集するには、次のいずれかを実行します。
++
+.. NetApp ONTAP tools *>* Protection *>* Host cluster relationships *に移動し、クラスタの省略記号メニューを選択して* Edit *または
+.. ホストクラスタを右クリックし、* NetApp ONTAP tools *>* Protect Cluster *を選択します。
+
+
+. [関係の追加]*を選択します。
+. ポリシータイプ「* Asynchronous *」または「* AutomatedFailOverDuplex *」として新しい関係を追加します。
+. [保護]*を選択します。
++
+変更は*[クラスタの保護]*ウィンドウで確認できます。
+
+
+
+vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況を追跡できます。
+
+
+
+== 既存のSnapMirror関係を削除する
+
+非同期SnapMirror関係を削除するには、ONTAP tools for VMware vSphereで、セカンダリサイトのSVMまたはクラスタをストレージバックエンドとして追加する必要があります。SnapMirror関係をすべて削除することはできません。関係を削除すると、ONTAPクラスタの対応する関係も削除されます。AutomatedFailOverDuplex SnapMirror関係を削除すると、デスティネーションのデータストアのマッピングが解除され、整合グループ、LUN、ボリューム、およびigroupがデスティネーションONTAPクラスタから削除されます。
+
+関係を削除すると、セカンダリサイトで再スキャンがトリガーされ、マッピングされていないLUNがアクティブパスとしてホストから削除されます。
+
+.手順
+. vSphere Clientにログインします。
+. 保護されたクラスタのプロパティを編集するには、次のいずれかを実行します。
++
+.. NetApp ONTAP tools *>* Protection *>* Host cluster relationships *に移動し、クラスタの省略記号メニューを選択して* Edit *または
+.. ホストクラスタを右クリックし、* NetApp ONTAP tools *>* Protect Cluster *を選択します。
+
+
+. SnapMirror設定の下にある省略記号メニューを選択し、*削除*を選択します。
+
+
+vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況を追跡できます。
+
+
+
+== 既存のSnapMirror関係を変更する
+
+非同期SnapMirror関係を変更するには、ONTAP tools for VMware vSphereで、セカンダリサイトのSVMまたはクラスタをストレージバックエンドとして追加する必要があります。AutomatedFailOverDuplex SnapMirror関係の場合は、均一な構成の場合はホストプロキシミティを変更し、不均一な構成の場合はホストアクセスを変更できます。AsynchronousポリシータイプとAutomatedFailOverDuplexポリシータイプを入れ替えることはできません。クラスタで新たに検出されたホストに近接またはアクセスを設定できます。
+
+
+NOTE: 既存の非同期SnapMirror関係を編集することはできません。
+
+.手順
+. vSphere Clientにログインします。
+. 保護されたクラスタのプロパティを編集するには、次のいずれかを実行します。
++
+.. NetApp ONTAP tools *>* Protection *>* Host cluster relationships *に移動し、クラスタの省略記号メニューを選択して* Edit *または
+.. ホストクラスタを右クリックし、* NetApp ONTAP tools *>* Protect Cluster *を選択します。
+
+
+. ポリシータイプとしてAutomatedFailOverDuplexが選択されている場合は、ホストプロキシミティまたはホストアクセスの詳細を追加します。
+. [保護]*ボタンを選択します。
+
+
+vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況を追跡できます。

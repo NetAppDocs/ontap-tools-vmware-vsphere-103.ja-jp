@@ -1,0 +1,164 @@
+---
+permalink: configure/create-datastore.html 
+sidebar: sidebar 
+keywords:  
+summary: ホストクラスタレベルでデータストアを作成すると、データストアが作成されてデスティネーションのすべてのホストにマウントされます。この操作は、現在のユーザに実行権限がある場合にのみ有効になります。 
+---
+= データストアを作成
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ホストクラスタレベルでデータストアを作成すると、データストアが作成されてデスティネーションのすべてのホストにマウントされます。この操作は、現在のユーザに実行権限がある場合にのみ有効になります。
+
+[role="tabbed-block"]
+====
+.vVolデータストアを作成する
+--
+ONTAP tools for VMware vSphere 10.3以降では、ASA R2システムにvVolデータストアを作成できます。スペース効率はthin.vvolです。VASA Providerでは、VVOLデータストアの作成時にコンテナと必要なプロトコルエンドポイントが作成されます。このコンテナにはバッキングボリュームはありません。
+
+.開始する前に
+* ルートアグリゲートがSVMにマッピングされていないことを確認してください。
+* 選択したvCenterにVASA Providerが登録されていることを確認してください。
+* ASA R2ストレージシステムでは、SVMユーザのアグリゲートにSVMをマッピングする必要があります。
+
+
+.手順
+. vSphere Clientにログインします。
+. ホストシステム、ホストクラスタ、またはデータセンターを右クリックし、* NetApp ONTAP tools *>*[Create Datastore]*を選択します。
+. [VVols]*[データストアタイプ]*を選択します。
+. [Datastore name]*と[Protocol]*の情報を入力します。
++
+
+NOTE: ASA R2システムでは、VVOLのiSCSIプロトコルとFCプロトコルがサポートされます。
+
+. データストアを作成するStorage VMを選択します。
+. NFSプロトコルのカスタムエクスポートポリシーを選択するか、iSCSIプロトコルとFCプロトコルのカスタムイニシエータグループ名を*[アドバンストオプション]*で選択します。
++
+
+NOTE: ASA R2ストレージシステムタイプがSVMの場合、データストアは単なる論理コンテナであるため、ストレージユニット（LUN /ネームスペース）は作成されません。
+
+. [ストレージ属性]*ペインで、新しいボリュームを作成するか、既存のボリュームを使用できます。ただし、これら2種類のボリュームを組み合わせてVVOLデータストアを作成することはできません。
++
+新しいボリュームを作成するときに、データストアでQoSを有効にすることができます。デフォルトでは、LUNが作成される要求ごとに1つのボリュームが作成されます。この手順は、ASA R2ストレージシステムを使用するvVolデータストアには適用されません。
+
+. [サマリ]*ペインで選択内容を確認し、*[完了]*を選択します。
+
+
+--
+.NFSデータストアを作成する
+--
+VMware Network File System（NFS）データストアは、NFSプロトコルを使用して、ESXiホストをネットワーク経由で共有ストレージデバイスに接続します。NFSデータストアはVMware vSphere環境で一般的に使用され、シンプルさや柔軟性など、いくつかの利点があります。
+
+.手順
+. vSphere Clientにログインします。
+. ホストシステム、ホストクラスタ、またはデータセンターを右クリックし、* NetApp ONTAP tools *>*[データストアの作成]*を選択します。
+. [データストアの種類]*フィールドで[NFS]を選択します。
+. [名前とプロトコル]*ペインに、データストア名、サイズ、およびプロトコルの情報を入力します。詳細オプションで*[データストアクラスタ]*および*[Kerberos認証]*を選択します。
++
+
+NOTE: Kerberos認証は、NFS 4.1プロトコルが選択されている場合にのみ使用できます。
+
+. [ストレージ]ペインで*[プラットフォーム]*と*[Storage VM]*を選択します。
+. 必要に応じて、アドバンストオプションで*[カスタムエクスポートポリシー]*を選択しますが、推奨されません。使用する場合は、すべてのオブジェクトに対してvCenterで検出を実行してください。
++
+
+NOTE: SVMのデフォルト/ルートボリュームポリシーを使用してNFSデータストアを作成することはできません。
+
++
+** アドバンストオプションの*[非対称]*トグルボタンは、プラットフォームのドロップダウンでパフォーマンスまたは容量が選択されている場合にのみ表示されます。
+** プラットフォームのドロップダウンで*[いずれか]*オプションを選択すると、プラットフォームフラグまたは非対称フラグに関係なくvCenterに属しているSVMが表示されます。
+
+
+. [ストレージ属性]*ペインで、ボリューム作成用のアグリゲートを選択します。アドバンストオプションで、必要に応じて*[スペースリザベーション]*および*[QoSを有効にする]*を選択します。
+. [概要]*ペインで選択内容を確認し、*[完了]*を選択します。
+
+
+NFSデータストアが作成され、すべてのホストにマウントされます。
+
+--
+.VMFSデータストアの作成
+--
+Virtual Machine File System（VMFS）は、VMware vSphere環境に仮想マシンファイルを格納するクラスタファイルシステムです。VMFSを使用すると、複数のESXiホストから同じ仮想マシンファイルに同時にアクセスできるため、vMotionや高可用性などの機能を利用できます。
+
+保護されているクラスタの場合：
+
+* VMFSデータストアのみを作成できます。VMFSデータストアを保護対象のクラスタに追加すると、データストアは自動的に保護されます。
+* 保護されているホストクラスタが1つ以上あるデータセンターにデータストアを作成することはできません。
+* 親ホストクラスタが「Automated Failover Duplex policy」タイプ（uniform / non-uniform config）の関係で保護されている場合は、ESXiホストにデータストアを作成できません。
+* VMFSデータストアは、非同期関係で保護されているESXiホストにのみ作成できます。「自動フェイルオーバーデュプレックス」ポリシーで保護されているホストクラスタの一部であるESXiホストでは、データストアを作成してマウントすることはできません。
+
+
+.開始する前に
+* ONTAPストレージ側で各プロトコルのサービスとLIFを有効にします。
+* ASA R2ストレージシステムで、SVMユーザ用のアグリゲートにSVMをマッピングします。
+* NVMe/TCPプロトコルを使用している場合はESXiホストを設定します。
++
+.. を確認します。 https://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=49677&releases_filter=589,578,518,508,448&deviceCategory=san&details=1&partner=399&Protocols=1&transportTypes=3&isSVA=0&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc["VMware Compatibility Guide"]
++
+
+NOTE: VMware vSphere 7.0 U3以降のバージョンでは、NVMe/TCPプロトコルがサポートされます。ただし、VMware vSphere 8.0以降のバージョンを推奨します。
+
+.. ネットワークインターフェイスカード（NIC）ベンダーがNVMe/TCPプロトコルを使用するESXi NICをサポートしているかどうかを確認します。
+.. NICベンダーの仕様に従ってESXi NICをNVMe/TCP用に設定します。
+.. VMware vSphere 7リリースを使用している場合は、VMwareサイトの手順に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/configure-adapters-for-nvme-over-tcp-storage/configure-vmkernel-binding-for-the-tcp-adapter.html["NVMe over TCPアダプタ用のVMkernelバインドの設定"]NVMe/TCPポートバインドを設定します。VMware vSphere 8リリースを使用している場合は、に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-tcp-on-esxi.html["ESXiでのNVMe over TCPの設定"]NVMe/TCPポートバインドを設定します。
+.. VMware vSphere 7リリースの場合は、ページの手順に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["NVMe over RDMAまたはNVMe over TCPソフトウェアアダプタの有効化"]NVMe/TCPソフトウェアアダプタを設定します。VMware vSphere 8リリースの場合は、に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-rdma-roce-v2-on-esxi/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["ソフトウェアNVMe over RDMAまたはNVMe over TCPアダプタの追加"]NVMe/TCPソフトウェアアダプタを設定します。
+.. link:../configure/discover-storage-systems-and-hosts.html["ストレージシステムとホストの検出"]ESXiホストでアクションを実行します。詳細については、を参照してください https://community.netapp.com/t5/Tech-ONTAP-Blogs/How-to-Configure-NVMe-TCP-with-vSphere-8-0-Update-1-and-ONTAP-9-13-1-for-VMFS/ba-p/445429["VMFSデータストア用にNVMe/TCPをvSphere 8.0 Update 1およびONTAP 9 VMFS.13.1で設定する方法"]。
+
+
+* NVMe/FCプロトコルを使用する場合は、次の手順を実行してESXiホストを設定します。
++
+.. ESXiホストでNVMe over Fabrics（NVMe-oF）を有効にします。
+.. SCSIゾーニングを完了します。
+.. ESXiホストとONTAPシステムが物理レイヤと論理レイヤで接続されていることを確認します。
+
+
+
+
+ONTAP SVMをFCプロトコル用に設定する方法については、を参照してください https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-fc-task.html["FC用のSVMの設定"]。
+
+VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、を参照してください https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP を搭載したESXi 8.x向けのNVMe-oFホスト構成"]。
+
+VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP NVMe/FC Host Configuration Guide"]、およびを参照して http://www.netapp.com/us/media/tr-4684.pdf["TR-4684"]ください。
+
+.手順
+. vSphere Clientにログインします。
+. ホストシステム、ホストクラスタ、またはデータセンターを右クリックし、* NetApp ONTAP tools *>*[Create Datastore]*を選択します。
+. VMFSデータストアタイプを選択します。
+. [名前とプロトコル]*ペインで、データストアの名前、サイズ、およびプロトコルの情報を入力します。既存のVMFSデータストアクラスタに新しいデータストアを追加する場合は、[Advanced Options]でデータストアクラスタセレクタを選択します。
+. [ストレージ]*ペインでStorage VMを選択します。必要に応じて、[アドバンストオプション]*セクションで*[カスタムイニシエータグループ名]*を指定します。データストア用に既存のigroupを選択するか、カスタム名を指定して新しいigroupを作成できます。
++
+NVMe/FCプロトコルまたはNVMe/TCPプロトコルを選択すると、新しいネームスペースサブシステムが作成され、ネームスペースのマッピングに使用されます。ネームスペースサブシステムは、自動生成されたデータストア名を使用して作成されます。[ストレージ]*ペインの詳細オプションにある*カスタムネームスペースサブシステム名*フィールドで、ネームスペースサブシステムの名前を変更できます。
+
+. ストレージ属性*ペインで、次の手順を実行します。
++
+.. ドロップダウンオプションから*[アグリゲート]*を選択します。
++
+
+NOTE: ASA R2ストレージシステムでは、ASA R2ストレージは分離型ストレージであるため、* Aggregate *オプションは表示されません。ASA R2ストレージシステムタイプのSVMを選択した場合は、ストレージ属性ページにQoSを有効にするためのオプションが表示されます。
+
+.. 選択したプロトコルに従って、ストレージユニット（LUN/ネームスペース）がシンタイプのスペースリザベーションで作成されます。
+.. 必要に応じて*[既存のボリュームを使用する]*、*[QoSを有効にする]*オプションを選択し、詳細を指定します。
++
+
+NOTE: ASA R2ストレージタイプでは、ボリュームの作成または選択はストレージユニット（LUN/ネームスペース）の作成には適用されません。したがって、これらのオプションは表示されません。
+
++
+
+NOTE: NVMe/FCまたはNVMe/TCPプロトコルを使用してVMFSデータストアを作成する場合は、既存のボリュームを使用できないため、新しいボリュームを作成する必要があります。
+
+
+
+. [概要]*ペインでデータストアの詳細を確認し、*[終了]*を選択します。
+
+
+
+NOTE: 保護対象のクラスタにデータストアを作成すると、「The datastore is being mounted on a protected Cluster」という読み取り専用メッセージが表示されます。
+
+.結果
+VMFSデータストアが作成され、すべてのホストにマウントされます。
+
+--
+====

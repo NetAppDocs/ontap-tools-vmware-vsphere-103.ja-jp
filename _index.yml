@@ -1,0 +1,37 @@
+---
+indexpage:
+  title: ONTAP Tools for VMware vSphere 10.3のドキュメント
+  lead: ONTAP Tools for VMware vSphereを使用すると、vCenter Server環境で仮想データストアを設定、管理、保護できます。
+  tiles:
+  - title: 開始する
+    links:
+    - title: リリースノート
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3334864
+    - title: ONTAP Tools for VMware vSphereの詳細
+      url: "/concepts/ontap-tools-overview.html"
+    - title: ONTAP Tools for VMware vSphereの導入
+      url: "/deploy/ontap-tools-deployment.html"
+    - title: ONTAP tools for VMware vSphereの最新リリースへのアップグレード
+      url: "/upgrade/upgrade-ontap-tools.html"
+    - title: ONTAP Tools for VMware vSphereを移行
+      url: migrate/migrate-to-latest-ontaptools.html
+  - title: ONTAP Tools for VMware vSphereの使用
+    links:
+    - title: ロールベースアクセス制御の設定
+      url: "/concepts/rbac-learn-about.html"
+    - title: リモート診断の設定
+      url: "/manage/configure-remote-diagnostic-access.html"
+    - title: ONTAP tools for VMware vSphereの高可用性
+      url: "/concepts/high-availability.html"
+    - title: データストアを保護
+      url: "/protect/enable-storage-replication-adapter.html"
+  - title: その他のリソース
+    links:
+    - title: 以前のバージョンのONTAP Tools for VMware vSphere 9のドキュメント
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63792
+    - title: NetAppナレッジベース- VMware vSphere向けONTAPツール
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetAppコミュニティ- ONTAP Tools for VMware vSphere
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions
+    - title: VMware vSphereとONTAPの詳細
+      url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html#why-ontap-for-vsphere
