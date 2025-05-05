@@ -63,7 +63,7 @@ summary: ONTAP tools for VMware vSphereを導入する前に、導入パッケ�
 | ONTAP toolsアプリケーションのIPアドレス |  
 
 
-| ノード間通信用のノードインターコネクトIPアドレス |  
+| 内部通信用のノードインターコネクトIPアドレス |  
 
 
 | 最初のノードのDNSホスト名 |  
