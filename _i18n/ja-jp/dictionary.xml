@@ -1636,34 +1636,20 @@
   <block id="6d710894cd1d83594944bdb2f558f3dd" category="paragraph">[列の管理]オプションを使用すると、別の列の表示/非表示を切り替えることができます。</block>
   <block id="c46965d55afff0a89c0bb3bd26c0a653" category="summary">ストレージデータを移行する際、ストレージバックエンドはREST APIを使用して手動でオンボーディングされます。VASA Providerのデータを移行すると、既存のDerbyデータベースからデータがエクスポートされ、MongoDBデータベースにインポートされます。</block>
   <block id="e43b5fd407b2bc9fda1a39851a48f9bb" category="doc">ONTAP Tools for VMware vSphere 9.xから10.3への移行</block>
-  <block id="8c5a94dd08e58279f7461d929aa633e6" category="paragraph">ストレージデータを移行する際、ストレージバックエンドはREST APIを使用して手動でオンボーディングされます。VASA Providerのデータを移行すると、既存のDerbyデータベースからデータがエクスポートされ、MongoDBデータベースにインポートされます。</block>
-  <block id="b191a7ff08bb6435186d922c59ff1907" category="admonition">ONTAP tools for VMware vSphere 9.xxのセットアップは、VASA Provider機能のみを実行する場合にのみ移行してください。</block>
   <block id="656a2ce4c62bd399a29a0cc087a7eb83" category="admonition">ONTAP tools for VMware vSphere 9.xから10.3に移行したあと、NVMe/FCプロトコルを使用するvVolデータストアは機能しません。これは、ONTAP tools 10.3がVMFSデータストアでNVMe-oFのみをサポートするためです。</block>
   <block id="f9f52fdfc3b658d087ef0d1715cc2008" category="paragraph">ONTAP Tools for VMware vSphere 9.12D1および9.13D2リリースから10.3に移行することができます。</block>
   <block id="12f864a7f79090b1b0f169109899eb43" category="admonition">パッチリリースにアップグレードする前に、現在のリリースからOVAバックアップを作成しておく必要があります。</block>
   <block id="135dda3ac3096b9bd31ceb04b513c216" category="section-title">一般的な移行手順</block>
-  <block id="98db65da9a06955541a5451543410fde" category="list-text">ONTAP tools for VMware vSphere 10.3リリース向けOVAを導入します。</block>
   <block id="e53a5f7966ebf538ff3fbae3277020fa" category="list-text">移行するvCenter ServerインスタンスをONTAP tools for VMware vSphere 10.3リリースに追加します。参照してください<block ref="fbc3413db4202f1fe331f16af6b38f13" category="inline-link-macro-rx"></block>。</block>
-  <block id="0073dc7bd5514abf0999b550aa754930" category="list-text">ONTAP Tools for VMware vSphereプラグインvCenter Server APIを使用して、ストレージバックエンドをローカルにオンボードします。移行用に、ローカルスコープのストレージとしてストレージを追加します。</block>
-  <block id="0cd5eb24f781f0b49a6c666e5220c98c" category="list-text">ONTAP tools for VMware vSphere 9.xxから移行されたNFSデータストアとVMFSデータストアがONTAP tools for VMware vSphere 10.3に表示されるのは、データストアの検出ジョブがトリガーされたあとだけです。トリガーされるまでに最大30分かかることがあります。VMware vSphereプラグインのユーザインターフェイスページのONTAP toolsの[Overview]ページにデータストアが表示されていることを確認します。</block>
   <block id="a556515aafd07bfe4c2dfa6abbaa4ccb" category="section-title">SRAの移行手順</block>
   <block id="b4c20aabb2d8056ffe9e2b60a0164bf2" category="paragraph">移行の前に、一方のサイトが保護状態で、もう一方のサイトがリカバリ状態であることを確認してください。</block>
-  <block id="c7c25af309bd84b7749f1862027abc3f" category="admonition">フェイルオーバーが完了したばかりで、再保護が保留中の場合は、移行しないでください。再保護を完了してから移行を実行します。リカバリプランのテストが完了したら、テストリカバリをクリーンアップして移行を開始します。</block>
-  <block id="a0e42a34ad94909291f9863e606095c3" category="list-text">VMware Live Site RecoveryユーザインターフェイスでONTAP tools for VMware vSphere 9.xxリリースSRAアダプタを削除するには、次の手順を実行します。</block>
   <block id="de7cd16aa682868ad900edd519b06059" category="list-text">VMware Live Site Recovery構成の管理ページに移動します。</block>
-  <block id="0f47e7ab13b9f8031de10689d97b861b" category="list-text">Storage Replication Adapter *セクションに移動します。</block>
-  <block id="f803051356e1156c49b0c23af17c876b" category="list-text">省略記号メニューを選択し、*設定のリセット*を選択します。</block>
-  <block id="a91d8b1466c010c4ae95c7bc969d60d2" category="list-text">省略記号メニューを選択し、*削除*を選択します。</block>
   <block id="77efba168b5a2059c2d20a1e2673f5d1" category="paragraph">これらの手順は、保護サイトとリカバリサイトの両方で実行します。</block>
-  <block id="3bf1c404c0b424b9520fcc0dc5fb8998" category="list-text">の手順に従って、保護サイトとリカバリサイトの両方にONTAP Tools for VMware vSphere 10.3 SRAアダプタをインストールします。 <block ref="9b6610ae0d9b3f2df042445cc8433cf4" category="inline-link-macro-rx"></block></block>
-  <block id="989a54cf1e604ac6307e40dbc2072ca2" category="list-text">VMware Live Site Recoveryのユーザーインターフェイスページで、*アレイの検出*および*デバイスの検出*操作を実行し、移行前のデバイスが表示されていることを確認します。</block>
   <block id="b7b423b5e37e418ae4659bcf83c729b5" category="section-title">VASA Providerの移行手順</block>
-  <block id="e316aaa000b8dea913558dbe47e2ab03" category="list-text">既存のONTAP tools for VMware vSphereでDerbyポート1527を有効にします。ポートを有効にするには、rootユーザでCLIにログインし、次のコマンドを実行します。</block>
   <block id="fdb5b6876d97a075f0bc2a07cd4be907" category="list-text">ONTAP tools for VMware vSphere 10.3向けOVAを導入します。</block>
   <block id="a8534b379980a6bb97915d2890ad3522" category="inline-link-macro">vCenter Serverインスタンスを追加する</block>
   <block id="34b17f133cdce8c13fd8b812b8c11211" category="list-text">移行するvCenter ServerインスタンスをONTAP tools for VMware vSphere 10.3リリースに追加します。を参照して <block ref="946669e64e0e42585f18099dec81ec03" category="inline-link-macro-rx"></block></block>
   <block id="1c9a04fa9475b21ef9be5e7bd0f30822" category="list-text">リモートのプラグインvCenter Server APIからストレージバックエンドをローカルにオンボードします。移行対象としてローカルスコープのストレージを追加します。</block>
-  <block id="c713abd43a97c8915e6503cd7f93ad36" category="list-text">移行する次のAPI呼び出しを問題します。</block>
   <block id="4b2e39d58448cd6246edaab6e2789245" category="paragraph">* HTTPメソッドとエンドポイント*</block>
   <block id="0b0231c1815d06ad4701a091ce91a740" category="paragraph">このREST API呼び出しでは、次のメソッドとエンドポイントを使用します。</block>
   <block id="d40e9450da0b47980b8d20417aa05da7" category="cell">* HTTP メソッド *</block>
@@ -1672,32 +1658,18 @@
   <block id="b46b241331d5bfe90afd25ec36605c07" category="paragraph">*処理タイプ*</block>
   <block id="288aae25bc408055f50c21c991903a44" category="paragraph">非同期</block>
   <block id="a62fbfbe1fa2fbcd3ff1ab71d9f0cf7a" category="paragraph">*カールの例*</block>
-  <block id="f8528d0e8a8584338a8fc7938174cdc1" category="paragraph">/api/v1/vcenters/｛vcguid｝/migration-jobs</block>
-  <block id="2ac6f49c394add121a7d6749715cf7ef" category="paragraph">* JSON入力例* 9.12および9.13からの移行のリクエスト本文：</block>
   <block id="80e56be2a784c57e6087b3af6db66ad9" category="paragraph">｛"otv_ip"："10.12.13.45"、"vasa_provider_credentials"：｛"username"："vasauser"、"password"："*********"｝"database_password"："***********"｝</block>
   <block id="654a9186fe9a47c1397903b9228f2c36" category="paragraph">他のリリース移行のリクエスト本文：</block>
   <block id="5cda9daf0baf81a9f615b94e32abb4a8" category="paragraph">｛"otv_ip"："10.12.13.45"、"vasa_provider_credentials"：｛"username"："vasauser"、"password"："*******"｝｝</block>
   <block id="18009c9216d59118fb460184e2ec0a3d" category="paragraph">* JSON出力例*</block>
   <block id="492fdcd87814cf3c979a27709fc29350" category="paragraph">ジョブオブジェクトが返されます。次の手順で使用するには、ジョブIDを保存する必要があります。</block>
   <block id="372ff7cae2da4e0d6205af97a48a61eb" category="paragraph">｛"id"：123、"migration_id"："d50073ce-35b4-4c51-9d2e-4ce66f802c35"、"status"："running"｝</block>
-  <block id="aee895c24ce8b1de4db4cd6c7eabc1e3" category="list-text">次のURIを使用してステータスを確認します。</block>
-  <block id="142e4d3f8edb2747fa0e3d260133b8c1" category="paragraph">ジョブが完了したら、移行レポートを検証します。このレポートはジョブデータの一部であり、ジョブ応答から確認できます。</block>
-  <block id="2d3feeef6331c15c90e4aea5b6cc1e41" category="list-text">ONTAP tools for VMware vSphereストレージプロバイダをvCenter Serverおよびに追加します <block ref="a322950c1b9e940cddaca5a47e2d5895" category="inline-link-macro-rx"></block>。</block>
   <block id="009dbe214d15197679fe0b95a8a01cc3" category="list-text">ONTAP Tools for VMware vSphereストレージプロバイダ9.10 / 9.11 / 9.12 / 9.13 VASA Providerサービスをメンテナンスコンソールから停止します。</block>
   <block id="ffdec42d5d13cecca850e153f75748ec" category="paragraph">VASA Providerは削除しないでください。</block>
   <block id="4bf6186a3a16efffdaebdafdd4fcaf4b" category="paragraph">古いVASA Providerを停止すると、vCenter ServerはONTAP tools for VMware vSphereにフェイルオーバーします。すべてのデータストアとVMにアクセスし、ONTAP Tools for VMware vSphereからアクセスできます。</block>
-  <block id="ba5c200a0d4600ec4fe2ef79c26593b8" category="list-text">次のAPIを使用してパッチの移行を実行します。</block>
-  <block id="41e9abb5d58ca11ff36c3067c273a762" category="paragraph">パッチ「/api/v1/vcenters/56d373bd-4163-44f9-a872-9adabb008ca9/migration-jobs/84dr73bd-9173-65r7-w345-8ufdbb887d43</block>
   <block id="bdfee7ad87d9004e1091e6e1762d0e84" category="paragraph">* JSON入力例*</block>
   <block id="f663ec26fcc5dbf0e82a2df73c30a3e3" category="paragraph">PATCH処理の要求の本文が空です。</block>
-  <block id="603041e40db447bbdd32fd4b4c2f994d" category="admonition">UUIDは、移行後のAPIの応答で返された移行UUIDです。</block>
-  <block id="e4453a0aab117b65b26edb59d78793fd" category="paragraph">パッチ移行APIが正常に実行されると、すべてのVMがストレージポリシーに準拠します。</block>
-  <block id="29d0e7add25c8163223dbcb531abf7d0" category="paragraph">移行が完了したら、ONTAP tools 10.3をvCenter Serverに登録したら、次の手順を実行します。</block>
-  <block id="6b50b8836085008a8950ddeafeb7453a" category="list-text">すべてのホストで証明書を更新します。</block>
-  <block id="9a43f64b9545dfa5ddfcc70dbc73d001" category="list-text">しばらくしてからデータストア（DS）および仮想マシン（VM）の処理を実行します。待機時間は、セットアップ内のホスト、DS、およびVMの数によって異なります。待機しないと、操作が断続的に失敗する可能性があります。</block>
-  <block id="422c2a3517291219d45e5d0be95be9d1" category="paragraph">アップグレード後に仮想マシンのコンプライアンス状態が最新でない場合は、次の手順に従って仮想マシンストレージポリシーを再適用します。</block>
   <block id="15e560ab707fa2bf2b7b0833adbe8bb9" category="list-text">データストアに移動し、*[概要]*&gt;*[ VMストレージポリシー]*を選択します。</block>
-  <block id="578a0636e92ae2e1b6afe3bdc7c9f9b3" category="paragraph">VMストレージポリシーへの準拠*では、準拠ステータスを確認できます。「Out-of-date*」と表示されます。</block>
   <block id="325367fe0120f7c1592bf3028da84bee" category="list-text">Storage VMポリシーと対応するVMを選択してください</block>
   <block id="c16f1c2a54634bdad6dee177f8131ef5" category="list-text">[適用]を選択します。</block>
   <block id="b180a96ee0634f423c4629bca8858873" category="paragraph">[VM storage policy compliance]*で、準拠ステータスが[準拠]と表示されるようになりました。</block>
@@ -2164,4 +2136,39 @@
   <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">マルチテナンシーのセットアップで、vCenterが関連付けられたSVMのテナントとして機能する場合は、ONTAP tools Managerを使用してクラスタを追加します。ストレージバックエンドをvCenter Serverに関連付けて、オンボードされたvCenter Serverインスタンスにグローバルにマッピングします。vCenterテナントは、目的のStorage Virtual Machine（SVM）をオンボードする必要があります。これにより、SVMユーザはvVolデータストアをプロビジョニングできます。SVMを使用してvCenterにストレージを追加できます。</block>
   <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">vSphere Clientユーザインターフェイスでストレージバックエンドを設定する場合、VVOLデータストアではSVMユーザを直接追加できない点に注意してください。</block>
   <block id="cbc2b2dc8b4ce185c5ef0381522a3cfc" category="admonition">vCenterインスタンスをONTAP toolsに追加するために管理者アカウントは必要ありません。権限が制限された管理者アカウントなしでカスタムロールを作成できます。詳細については、を参照してください <block ref="31ec071db09c0fa81e221bfe3044a965" category="inline-link-macro-rx"></block> 。</block>
+  <block id="a9919517205886b598c13e9032a09059" category="paragraph">ストレージデータの移行時には、REST APIを使用してストレージバックエンドを手動でオンボードします。VASA Providerのデータ移行では、既存のDerbyデータベースからデータをエクスポートし、MongoDBデータベースにインポートします。</block>
+  <block id="b7760802f5560cd215cd7dee93951bfd" category="admonition">ONTAP Tools for VMware vSphere 9.XXからの移行は、VASA ProviderとVVOLを使用する場合にのみ必要です。</block>
+  <block id="3b399f32cd58f37d5c326f406d9b291f" category="list-text">ONTAP Tools for VMware vSphere 10.3リリース用のOVAを導入します。</block>
+  <block id="7949ac5c6b3d4313dd4d5969af832925" category="list-text">vCenterサーバでONTAP toolsプラグインを使用して、ストレージバックエンドをローカルでオンボードします。移行用に、ローカルスコープのストレージとしてストレージを追加します。</block>
+  <block id="46ec37b71ccf8c993dcbf7cb78fe2af7" category="admonition">フェイルオーバーが完了しても再保護が保留中の場合は、移行を開始しないでください。移行を続行する前に、再保護プロセスが完了していることを確認してください。テストフェイルオーバーを実行中の場合は、テストフェイルオーバーをクリーンアップして移行を開始します。</block>
+  <block id="da2f48d729eae4ca1010b4a077b66b02" category="list-text">VMware Site RecoveryでONTAP tools SRAアダプタfor VMware vSphere 9.xxを削除するには、次の手順を実行します。</block>
+  <block id="b2c26a87d051d5889e6d2e4ab1fc79de" category="list-text">Storage Replication Adapter *セクションに移動します。</block>
+  <block id="b80a5fe26546f4090c014df2108347ab" category="list-text">省略記号メニューから* Reset configuration *を選択します。</block>
+  <block id="1ab7bd22ce5077185a70517ea0db34ec" category="list-text">省略記号メニューから*削除*を選択します。</block>
+  <block id="108af0df3d39dcc8f1002f2564a37e20" category="list-text">の手順に従って、ONTAP Tools for VMware vSphere 10.3 SRAアダプタをインストールします<block ref="9b6610ae0d9b3f2df042445cc8433cf4" category="inline-link-macro-rx"></block>。</block>
+  <block id="e3e32085ef48d00b185f9ae05a428520" category="list-text">VMware Live Site Recoveryのユーザーインターフェイスページで、*アレイの検出*および*デバイスの検出*操作を実行し、移行前と同じようにデバイスが表示されることを確認します。</block>
+  <block id="6136a81a0ac0e402d6b510c2488f1d36" category="list-text">既存のONTAP tools for VMware vSphereでDerbyポート1527を有効にするには、rootユーザを有効にし、SSHを使用してCLIにログインします。次に、次のコマンドを実行します。</block>
+  <block id="b5bf1eb9fc501e53457cde004db09086" category="list-text">SwaggerまたはPostmanから次のAPIを実行して移行します。</block>
+  <block id="45b4835ddd7ad16076afa0b51bf12d2a" category="paragraph">カール- Xポスト<block ref="a9f22201e72a1b8e399b24ae5e861616" category="inline-link-rx"></block></block>
+  <block id="d15764d5088db3a571ec9ccf86341552" category="paragraph">Swaggerには、次のURLからアクセスできます。https://$FQDN_IP_PORT/,例：<block ref="1f852f41a6044590b385b39eaef5531e" category="inline-link-rx"></block></block>
+  <block id="54caf31d7246402cdcb6cd5c255c5c64" category="paragraph">カール- Xポスト<block ref="4042f1acb8fe47ca556f8b938a8d6e08" category="inline-link-rx"></block></block>
+  <block id="40e0776d71fd5d591d53e451a6006fa9" category="paragraph">9.12および9.13からの移行のリクエスト本文：</block>
+  <block id="91377d2edc3d930017c1b8c4679bdb89" category="list-text">Swaggerで次のURIを使用してステータスを確認します。</block>
+  <block id="b02dd8a7793406878f54951af581d6f2" category="paragraph">ジョブが完了したら、移行レポートを確認します。このレポートはジョブデータに含まれており、ジョブ応答からアクセスできます。</block>
+  <block id="4551975cd29f0bfb98cd73d6f5cb8388" category="inline-link-macro">VASA Providerを登録する</block>
+  <block id="0edd46e4487a559e489864eebe825e64" category="list-text">ONTAP tools for VMware vSphereストレージプロバイダをvCenter ServerおよびONTAP tools for VMware vSphereに追加します<block ref="c283b8bc021fee7e6c856fce39783a46" category="inline-link-macro-rx"></block>。</block>
+  <block id="588348e2b65e0439aeb5d92799e13781" category="inline-link-macro">VASA Provider の有効化</block>
+  <block id="afba674b121ae477fe8d69c9920021ef" category="list-text"><block ref="3f0f412beb77bd4bc4dc7f97f661a149" category="inline-link-macro-rx"></block>Service on ONTAP tools for VMware vSphere 10.3を参照してください。</block>
+  <block id="43278c46500368f0b18a81d5a9eabd6c" category="list-text">ONTAP tools for VMware vSphere 9.xxから移行されたNFSデータストアとVMFSデータストアがONTAP tools for VMware vSphere 10.3に表示されるのは、データストアの検出ジョブがトリガーされてからで、完了までに最大30分かかることがあります。VMware vSphereプラグインのユーザインターフェイスページのONTAP toolsの概要ページにデータストアが表示されるかどうかを確認します。</block>
+  <block id="96b2fedcc932770f843418dedfe7f004" category="list-text">SwaggerまたはPostmanで次のAPIを使用してパッチの移行を実行します。</block>
+  <block id="99a490d727b23ee47f3b441a7342d420" category="paragraph">CURL-Xパッチ<block ref="fd07e34d045cf59e25acb7168e60f530" category="inline-link-rx"></block></block>
+  <block id="84a75f6b0a005e405f2680d9ab007b12" category="admonition">UUIDは、移行後のAPIに対する応答で返される移行UUIDです。</block>
+  <block id="6282a0b7136c4d492053004c35f8e976" category="paragraph">パッチ移行APIを実行すると、すべてのVMがストレージポリシーに準拠します。</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">次の手順</block>
+  <block id="3df06925c881bdeaea08f90799e17cfa" category="paragraph">移行を完了してONTAP tools 10.3をvCenter Serverに登録したら、次の手順を実行します。</block>
+  <block id="5db743b53293821cee54f2f6de3ecd01" category="list-text">検出*が完了するまで待ちます。証明書はすべてのホストで自動的に更新されます。</block>
+  <block id="5d1246969958082ec28a05d01c3e60f8" category="list-text">データストアと仮想マシンの処理を開始する前に十分な時間を確保してください。必要な待機時間は、構成内のホスト、データストア、および仮想マシンの数によって異なります。待機しないと、一時的に動作エラーが発生する可能性があります。</block>
+  <block id="76dc960090031506bd84c78f38fe040e" category="paragraph">アップグレード後に仮想マシンのコンプライアンス状態が古い場合は、次の手順に従ってストレージポリシーを再適用します。</block>
+  <block id="0f4e59ab0634b5a1f97823bc94b0f039" category="paragraph">[VM storage policy compliance]*で、準拠ステータスが* out-of-date *と表示されます。</block>
+  <block id="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="list-text"><block ref="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="inline-link-macro-rx"></block></block>
 </blocks>
