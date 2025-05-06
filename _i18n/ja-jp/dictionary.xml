@@ -2163,4 +2163,5 @@
   <block id="3e691305a01d01aac8e30b75bd1d8a27" category="cell">内部通信用のノードインターコネクトIPアドレス</block>
   <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">マルチテナンシーのセットアップで、vCenterが関連付けられたSVMのテナントとして機能する場合は、ONTAP tools Managerを使用してクラスタを追加します。ストレージバックエンドをvCenter Serverに関連付けて、オンボードされたvCenter Serverインスタンスにグローバルにマッピングします。vCenterテナントは、目的のStorage Virtual Machine（SVM）をオンボードする必要があります。これにより、SVMユーザはvVolデータストアをプロビジョニングできます。SVMを使用してvCenterにストレージを追加できます。</block>
   <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">vSphere Clientユーザインターフェイスでストレージバックエンドを設定する場合、VVOLデータストアではSVMユーザを直接追加できない点に注意してください。</block>
+  <block id="cbc2b2dc8b4ce185c5ef0381522a3cfc" category="admonition">vCenterインスタンスをONTAP toolsに追加するために管理者アカウントは必要ありません。権限が制限された管理者アカウントなしでカスタムロールを作成できます。詳細については、を参照してください <block ref="31ec071db09c0fa81e221bfe3044a965" category="inline-link-macro-rx"></block> 。</block>
 </blocks>

@@ -21,6 +21,10 @@ ONTAP toolsをvCenterと統合することで、プロビジョニング、Snaps
 . Webブラウザを開き、次のURLに移動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
 . 導入時に指定したONTAP tools for VMware vSphere管理者のクレデンシャルを使用してログインします。
 . vCenter Serverインスタンスをオンボードするには、* vCenters *>* Add *を選択します。vCenterのIPアドレスまたはホスト名、ユーザ名、パスワード、およびポートの詳細を入力します。
++
+
+NOTE: vCenterインスタンスをONTAP toolsに追加するために管理者アカウントは必要ありません。権限が制限された管理者アカウントなしでカスタムロールを作成できます。詳細については、を参照してください link:../concepts/rbac-vcenter-use.html["vCenter Server RBACとONTAP Tools for VMware vSphere 10の使用"] 。
+
 
 
 vCenter ServerインスタンスをONTAP toolsに追加すると、次の処理が自動的にトリガーされます。
