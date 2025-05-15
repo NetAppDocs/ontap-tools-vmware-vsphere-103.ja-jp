@@ -15,12 +15,8 @@ NFS vStorage API for Array Integration（NFS VAAI）プラグインは、VMware 
 
 .開始する前に
 * インストールパッケージをダウンロードし https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["NetApp NFS Plug-in for VMware VAAI"]ます。
-* ESXiホスト7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。
+* ESXiホストとvSphere 7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。
 * NFSデータストアをマウント
-* DataMover.HardwareAcceleratedMove、DataMover.HardwareAcceleratedInit、およびVMFS3.HardwareAcceleratedLockingのホスト設定の値を「1」に設定します。これらの値を自動的に設定するには、EXSiホストの推奨設定を適用します。を参照してください link:../configure/configure-esx-server-multipath-and-timeout-settings.html["ESXiサーバのマルチパスとタイムアウトの設定"]。
-* vserver nfs modify -vserver vserver_name -vstorage enabledコマンドを使用して、Storage Virtual Machine（SVM）でvstorageオプションを有効にします。
-* vSphere 7.0U3の最新のパッチリリースがインストールされていることを確認します。
-* vSphere 8.xは、NetApp NFS VAAIプラグイン2.0.1（ビルド16）でサポートされます。
 
 
 .手順
@@ -33,7 +29,7 @@ NFS vStorage API for Array Integration（NFS VAAI）プラグインは、VMware 
 +
 プラグインのインストールに適したESXiホストのみが表示されます。インストールの進捗状況は、vSphere Web Clientの[Recent tasks]セクションで監視できます。
 
-. インストールの完了後にESXiホストを手動で再起動する必要があります。
+. インストール後にESXiホストを手動で再起動します。
 +
 VMware管理者がESXiホストを再起動すると、ONTAP Tools for VMware vSphereによってNFS VAAIプラグインが自動的に検出されて有効になります。
 

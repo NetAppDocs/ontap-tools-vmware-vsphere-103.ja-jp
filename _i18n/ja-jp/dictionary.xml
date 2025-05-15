@@ -432,15 +432,10 @@
   <block id="a4190631e34ccca7730e594f6655cc87" category="paragraph">ONTAP tools for VMware vSphereを使用すると、ESXiホストでタイムアウトなどの値を設定して、最適なパフォーマンスが確保され、フェイルオーバーが正常に実行されるようにすることができます。ONTAP tools for VMware vSphereが設定する値は、社内のNetAppテストに基づいています。</block>
   <block id="9232ab7e918fc93452c2dc7c8fab1b8c" category="paragraph">ESXiホストで設定できる値は次のとおりです。</block>
   <block id="ab9d8dfb65807487a899df1683e128fa" category="section-title">HBA / CNAアダプタ設定</block>
-  <block id="d3c41b5a4cf556f3a598cc1221e08ee4" category="paragraph">NetAppストレージシステムに推奨されるHBAタイムアウト設定を設定します。</block>
-  <block id="3225a10b07f1580f10dee4abc3779e6c" category="cell">パラメータ</block>
   <block id="c77eb099ccd3a59aa3a56c3c98c84669" category="cell">設定する値</block>
   <block id="117704664d6cada78ac3107380f63d23" category="cell">Disk.QFullSampleSize</block>
-  <block id="07b21acb18ec7b34bd91453e33448369" category="cell">32（すべての構成）この値を設定すると、I/Oエラーを回避できます。</block>
   <block id="f66a3c183f0e736240b77f8b755c880e" category="cell">Disk.QFullThreshold</block>
-  <block id="ed6604a4485d16e1285db04ae3d4279f" category="cell">8（すべての構成）この値を設定すると、I/Oエラーを回避できます。</block>
   <block id="19c08de7404551288e1274186e039ef4" category="cell">Emulex FC HBAタイムアウト</block>
-  <block id="6ea7e3b1d2b04c77c55309b1aaa41f8c" category="cell">デフォルト値。</block>
   <block id="d46cddda4da7ec11f17472d11df95b68" category="cell">QLogic FC HBAタイムアウト</block>
   <block id="c803cf4eb4cbf3a6b12b1e1cc3443970" category="section-title">MPIO設定</block>
   <block id="6a56526090ecb77854d07be849799242" category="paragraph">MPIO設定では、NetAppストレージシステムの優先パスを定義します。また、使用可能なパスのうちどのパスが最適化されているか（インターコネクトケーブルを経由する非最適化パスではなく）が判断され、そのいずれかのパスに優先パスが設定されます。</block>
@@ -705,19 +700,13 @@
   <block id="89f7633ad6a1e114cebf9902aa42fd5c" category="paragraph">NFS vStorage API for Array Integration（NFS VAAI）プラグインは、VMware vSphereとNFSストレージアレイを統合するソフトウェアコンポーネントです。ONTAP tools for VMware vSphereを使用してNFS VAAIプラグインをインストールし、NFSストレージアレイの高度な機能を活用して、特定のストレージ関連処理をESXiホストからストレージアレイ自体にオフロードします。</block>
   <block id="bf25ac3fc5bee2b3ec36e32661767682" category="inline-link">NetApp NFS Plug-in for VMware VAAI</block>
   <block id="f9fcb823ee6471ecceb63c9625d2c8fc" category="list-text">インストールパッケージをダウンロードし<block ref="e6fae45561f1786d6f3534aff65b3377" category="inline-link-rx"></block>ます。</block>
-  <block id="e27bb3e78ef59cd560e56215a182f3b3" category="list-text">ESXiホスト7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。</block>
   <block id="a585389d21dd9fbdbdc15072bd5d7010" category="list-text">NFSデータストアをマウント</block>
-  <block id="3efe2db5c0b83bc2774d6061359381ed" category="list-text">DataMover.HardwareAcceleratedMove、DataMover.HardwareAcceleratedInit、およびVMFS3.HardwareAcceleratedLockingのホスト設定の値を「1」に設定します。これらの値を自動的に設定するには、EXSiホストの推奨設定を適用します。を参照してください <block ref="a13757a488cc72436349db8983ce6613" category="inline-link-macro-rx"></block>。</block>
-  <block id="957daa20d20cf15a7839d7e44ecdb2ab" category="list-text">vserver nfs modify -vserver vserver_name -vstorage enabledコマンドを使用して、Storage Virtual Machine（SVM）でvstorageオプションを有効にします。</block>
-  <block id="d5676260c3a3d58c4d9ebd79f3558bac" category="list-text">vSphere 7.0U3の最新のパッチリリースがインストールされていることを確認します。</block>
-  <block id="ebfe914a124eb1ec0cc1d8f6d6c420cb" category="list-text">vSphere 8.xは、NetApp NFS VAAIプラグイン2.0.1（ビルド16）でサポートされます。</block>
   <block id="dbf218ab7bc36005b7fdd93dda1f6eda" category="list-text">プラグインセクションで*ショートカット*&gt;* NetApp ONTAP tools *を選択します。</block>
   <block id="0e57b7b27807ae2427ad1a654eca765e" category="list-text">[設定]*&gt;*[NFS VAAIツール]*を選択します。</block>
   <block id="42e4695fefd280ddc3a6f11124586510" category="list-text">VAAIプラグインをvCenter Serverにアップロードしたら、* Existing version *セクションで* Change *を選択します。VAAIプラグインがvCenter Serverにアップロードされていない場合は、*[アップロード]*ボタンを選択します。</block>
   <block id="0aa364b40943456fe1d59c4a4a6ee32d" category="list-text">ファイルを参照して選択し<block ref="74f7b54ea713d9f5b69839982911bbf7" prefix=" " category="inline-code"></block>、*アップロード*を選択してファイルをONTAPツールにアップロードします。</block>
   <block id="75650b415bb2c723c71117c59992e489" category="list-text">[ESXiホストにインストール]*を選択し、NFS VAAIプラグインをインストールするESXiホストを選択して、*[インストール]*を選択します。</block>
   <block id="681ca77b2652713f7e6d867f281733ec" category="paragraph">プラグインのインストールに適したESXiホストのみが表示されます。インストールの進捗状況は、vSphere Web Clientの[Recent tasks]セクションで監視できます。</block>
-  <block id="4969bf5d68bb071342161a9b29a23f5c" category="list-text">インストールの完了後にESXiホストを手動で再起動する必要があります。</block>
   <block id="d15e664257aa2207434ef9543a593a8d" category="paragraph">VMware管理者がESXiホストを再起動すると、ONTAP Tools for VMware vSphereによってNFS VAAIプラグインが自動的に検出されて有効になります。</block>
   <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">次の手順</block>
   <block id="90ba1578c2c367413063e7228d8586b5" category="paragraph">NFS VAAIプラグインをインストールしてESXiホストをリブートしたら、VAAIコピーオフロード用の正しいNFSエクスポートポリシーを設定する必要があります。NFS環境でVAAIを設定する場合は、次の要件を考慮してエクスポートポリシールールを設定します。</block>
@@ -2171,4 +2160,7 @@
   <block id="76dc960090031506bd84c78f38fe040e" category="paragraph">アップグレード後に仮想マシンのコンプライアンス状態が古い場合は、次の手順に従ってストレージポリシーを再適用します。</block>
   <block id="0f4e59ab0634b5a1f97823bc94b0f039" category="paragraph">[VM storage policy compliance]*で、準拠ステータスが* out-of-date *と表示されます。</block>
   <block id="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="list-text"><block ref="3e771c8c630b8cfd1ddd0dfc7e8e7c85" category="inline-link-macro-rx"></block></block>
+  <block id="395ddb6ca1b9948e32145f8fa1a9201e" category="paragraph">次のパラメータをデフォルト値に設定します。</block>
+  <block id="0882ef7c28701c98bdd62f72da8634a7" category="list-text">ESXiホストとvSphere 7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。</block>
+  <block id="2bf603021962a26e3bcb2bea93110c9f" category="list-text">インストール後にESXiホストを手動で再起動します。</block>
 </blocks>
