@@ -11,7 +11,7 @@ summary: vCenter ServerインスタンスをONTAP tools for VMware vSphereに追
 
 
 [role="lead"]
-vCenter ServerインスタンスをONTAP tools for VMware vSphereに追加して、vCenter Server環境内の仮想データストアを設定、管理、保護します。
+vCenter ServerインスタンスをONTAP tools for VMware vSphereに追加して、vCenter Server環境内の仮想データストアを設定、管理、保護します。複数の vCenter Server インスタンスを追加する場合、ONTAP ツールと各 vCenter Server 間の安全な通信にはカスタム CA 証明書が必要です。
 
 * このタスクについて *
 

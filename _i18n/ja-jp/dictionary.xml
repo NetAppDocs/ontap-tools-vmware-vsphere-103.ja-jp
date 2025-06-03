@@ -767,7 +767,6 @@
   <block id="02ecc951ba9c7de4ba8def4213f1982e" category="list-text">保護されているホストクラスタを表示するには、* NetApp ONTAP tools *&gt;* Protection *&gt;* Host cluster relationships *に移動します。</block>
   <block id="ded8026201084be2fda01a73c0b6a45c" category="summary">VASA Providerは、ONTAP tools for VMware vSphereリモートプラグインインターフェイスを使用してvCenter Serverインスタンスに登録できます。</block>
   <block id="062e7967273cea76dff9c3579a0c44db" category="doc">VASA ProviderをvCenter Serverインスタンスに登録する</block>
-  <block id="8ce287b63bedf11bff1339b770533de1" category="paragraph">VASA Providerは、ONTAP tools for VMware vSphereを使用してvCenter Serverインスタンスに登録できます。[VASA Providerの設定]セクションに、選択したvCenter ServerのVASA Providerの登録ステータスが表示されます。</block>
   <block id="1767c8dcd2dacb5056d2a398b5761669" category="list-text">[設定]*&gt;*[VASA Provider設定]*を選択します。VASA Providerの登録ステータスは「Not Registered」と表示されます。</block>
   <block id="600ff4b29760f4ad12573092ddf700ed" category="list-text">[登録]*ボタンを選択してVASA Providerを登録します。</block>
   <block id="30219dec23be3c12e0dc980cd1686912" category="list-text">VASA Providerの名前を入力し、ONTAP tools for VMware vSphereアプリケーションのユーザクレデンシャルを指定して、*[登録]*を選択します。</block>
@@ -953,12 +952,10 @@
   <block id="bbd46d16a0b9c56c79719db1f0a2b9a8" category="paragraph">次のワークシートを使用して、ONTAP tools for VMware vSphereの初期導入に必要な情報を収集します。for ONTAP tools for VMware vSphereの初期導入：</block>
   <block id="9b97b7bd5e0a87be7bf218224ada83cf" category="cell">要件</block>
   <block id="d9fa81fca11f55d9fd9f33b399ab9cd6" category="cell">あなたの価値</block>
-  <block id="89d40dff7639b41cbef7fe2a44f484ba" category="cell">ONTAP toolsアプリケーションのIPアドレス</block>
   <block id="5759f8c1a9261b4c6c0c86f5089433b5" category="cell">最初のノードのDNSホスト名</block>
   <block id="68eeeed01bf11dc7edb656408cbfd0b6" category="cell">プライマリ DNS サーバ</block>
   <block id="9fab0542abb763e3e75e782994d85d07" category="cell">セカンダリ DNS サーバ</block>
   <block id="a8887a6c969074f8ef768152e95c492b" category="cell">DNS検索ドメイン</block>
-  <block id="b2aa01474bea61170041c002c6ac208a" category="cell">プライマリノードのIPv4アドレス</block>
   <block id="8e7f18a32aaa409ac6db22c6061404a7" category="cell">IPv4アドレスのサブネットマスク</block>
   <block id="6eb16330b386af07329e0c9d0a1c2421" category="cell">IPv4アドレスのデフォルトゲートウェイ</block>
   <block id="92abdbc0e1cb9b88fc2be7c70ef79e37" category="cell">IPv6アドレス（オプション）</block>
@@ -1124,8 +1121,6 @@
   <block id="d0c12810d8bb376bdd62e0a7dcb8f3ef" category="inline-link-macro">ストレージバックエンドをvCenter Serverインスタンスに関連付ける</block>
   <block id="349dea55081cba7988d2e74a569b149b" category="list-text"><block ref="349dea55081cba7988d2e74a569b149b" category="inline-link-macro-rx"></block></block>
   <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">6</block>
-  <block id="acfa27b57a294a787f715e773cc9d67b" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block>複数のvCenter Serverを使用している場合は、証明書をアップグレードします。</block>
-  <block id="7a141a550c6b7316b61d038ab322ca86" category="paragraph">複数のvCenter Serverを使用している場合は、自己署名証明書を認証局（CA）署名証明書にアップグレードします。</block>
   <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">7</block>
   <block id="85fa32c6f1935c07720a211f20305579" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block>（オプション）SRA保護の有効化</block>
   <block id="461016ffd7a6c7ca138e75fad0c9b7ce" category="paragraph">SRA機能を有効にして、ディザスタリカバリを設定し、NFSまたはVMFSデータストアを保護する。</block>
@@ -1216,7 +1211,6 @@
   <block id="c5e37bc00c030bf0bbf393fbb0102c75" category="summary">ONTAP tools for VMware vSphereの導入環境を削除したら、導入時に作成されたFlexVolをクリーンアップする必要があります。導入に専用のONTAPクラスタを使用していた場合は、FlexVolをクリーンアップする必要があります。導入によって大量のFlexVolが作成され、使用されないためパフォーマンスが低下します。</block>
   <block id="fc670824c9b9087edaedbd8931be914a" category="doc">FlexVolボリュームを削除する</block>
   <block id="94ba231101263cc02a5bbd35865c2569" category="paragraph">VMware環境のONTAP toolsに専用のONTAPクラスタを使用すると、未使用のFlexVolボリュームが多数作成されます。ONTAP Tools for VMware vSphereを削除したら、パフォーマンスへの影響を回避するためにFlexVolボリュームを削除する必要があります。</block>
-  <block id="cde906e65e5da4b3f2fe17b754df15ce" category="list-text">プライマリノードVMからONTAP Tools for VMware vSphereの導入タイプを決定します。</block>
   <block id="6aa67ccabd12c5a1df1d1b2ed5e708fe" category="paragraph">_cat /opt/netapp/meta/ansible vars.yaml | grep -i protocol_</block>
   <block id="3fcb4ec0988a47a419299691b19d04fa" category="paragraph">iSCSI環境の場合は、igroupも削除する必要があります。</block>
   <block id="80ca6447cbd8bd1ace2853c2fc7c8028" category="list-text">FlexVolボリュームのリストを取得します。</block>
@@ -1498,7 +1492,6 @@
   <block id="bd294460cf119253eaf3ca5c5ff6bb68" category="summary">ゲストOSの再起動操作中に、grubメニューにメンテナンスコンソールのユーザパスワードをリセットするオプションが表示されます。</block>
   <block id="f0b6145036d556579acfe2db1be06830" category="doc">メンテナンスコンソールのユーザパスワードのリセット</block>
   <block id="748a86e8da423b16c861e9ba78527903" category="paragraph">ゲストOSの再起動処理中に、grubメニューにメンテナンスコンソールのユーザパスワードをリセットするオプションが表示されます。このオプションは、対応するVMに存在するメンテナンスコンソールのユーザパスワードを更新する場合に使用します。パスワードのリセットが完了すると、VMが再起動して新しいパスワードを設定します。HA導入シナリオでは、VMの再起動後、他の2つのVMでパスワードが自動的に更新されます。</block>
-  <block id="b0bc3604d114546b6aae8777d8ac55fc" category="admonition">ONTAP tools for VMware vSphere HAを導入する場合は、プライマリノード（node1）でメンテナンスコンソールユーザのパスワードを変更する必要があります。</block>
   <block id="2ba7610b112ed8fa5391c57f6419a68b" category="list-text">vCenter Serverにログインする</block>
   <block id="2b9e667aee365fdcad035cc69436d9d5" category="inline-image-macro">メンテナンスユーザのパスワードのリセット</block>
   <block id="9c53638886d156ef1724c25c3b171528" category="list-text">VMを右クリックし、* Power *&gt;* Restart Guest OS *を選択します。システムの再起動中に、次の画面が表示されます。<block ref="515bd311b9d352624722007b23637a91" category="inline-image-macro-rx" type="image"></block></block>
@@ -2121,7 +2114,6 @@
   <block id="0d8dd733c5e5b6b5d173af6dbb7e3dff" category="list-text">ONTAP toolsのIPアドレスは、ONTAP toolsと通信するためのプライマリインターフェイスです。</block>
   <block id="0c72f5748e7c096b829fa8c13bdb6b7f" category="list-text">IPv4はノード設定のIPアドレスコンポーネントで、デバッグやメンテナンスの目的でノードの診断シェルやSSHアクセスを有効にするために使用できます。</block>
   <block id="e10687c7d1d3c93cdb138a57d9d14bdb" category="list-text">ノードのインターコネクトIPアドレスは内部通信に使用されます。</block>
-  <block id="3e691305a01d01aac8e30b75bd1d8a27" category="cell">内部通信用のノードインターコネクトIPアドレス</block>
   <block id="7ffde475c4ea55e9fc7c8c11becbc141" category="paragraph">マルチテナンシーのセットアップで、vCenterが関連付けられたSVMのテナントとして機能する場合は、ONTAP tools Managerを使用してクラスタを追加します。ストレージバックエンドをvCenter Serverに関連付けて、オンボードされたvCenter Serverインスタンスにグローバルにマッピングします。vCenterテナントは、目的のStorage Virtual Machine（SVM）をオンボードする必要があります。これにより、SVMユーザはvVolデータストアをプロビジョニングできます。SVMを使用してvCenterにストレージを追加できます。</block>
   <block id="112fa4a14bcd73096ce0a79df18e90c8" category="admonition">vSphere Clientユーザインターフェイスでストレージバックエンドを設定する場合、VVOLデータストアではSVMユーザを直接追加できない点に注意してください。</block>
   <block id="cbc2b2dc8b4ce185c5ef0381522a3cfc" category="admonition">vCenterインスタンスをONTAP toolsに追加するために管理者アカウントは必要ありません。権限が制限された管理者アカウントなしでカスタムロールを作成できます。詳細については、を参照してください <block ref="31ec071db09c0fa81e221bfe3044a965" category="inline-link-macro-rx"></block> 。</block>
@@ -2163,4 +2155,13 @@
   <block id="395ddb6ca1b9948e32145f8fa1a9201e" category="paragraph">次のパラメータをデフォルト値に設定します。</block>
   <block id="0882ef7c28701c98bdd62f72da8634a7" category="list-text">ESXiホストとvSphere 7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。</block>
   <block id="2bf603021962a26e3bcb2bea93110c9f" category="list-text">インストール後にESXiホストを手動で再起動します。</block>
+  <block id="a9a74d98e6d11230d876df92acb424fd" category="paragraph">vCenter ServerインスタンスをONTAP tools for VMware vSphereに追加して、vCenter Server環境内の仮想データストアを設定、管理、保護します。複数の vCenter Server インスタンスを追加する場合、ONTAP ツールと各 vCenter Server 間の安全な通信にはカスタム CA 証明書が必要です。</block>
+  <block id="07c9ecda15aaf26d8eef3770025ec27c" category="paragraph">VASA Providerは、ONTAP tools for VMware vSphereを使用してvCenter Serverインスタンスに登録できます。[VASA Providerの設定]セクションに、選択したvCenter ServerのVASA Providerの登録ステータスが表示されます。マルチ vCenter 展開では、各 vCenter Server インスタンスにカスタム CA 証明書があることを確認します。</block>
+  <block id="42c7c15e79d589d9c277ebcfaf6f5cbd" category="cell">ONTAPツールアプリケーションのIPアドレス。これは、ONTAPツールのWebインターフェースにアクセスするためのIPアドレスです。</block>
+  <block id="b88a0208d3e02d8e8542318a4bf1dae1" category="cell">ONTAPツールの内部通信用仮想IPアドレス。このIPアドレスは、複数のONTAPツールインスタンスを使用する環境での内部通信に使用されます。このIPアドレスは、ONTAPツールアプリケーションのIPアドレスと同じにしないでください。</block>
+  <block id="5813391479b0e439cbd9b28d9c14a7b2" category="cell">最初のノードの IPv4 アドレス。管理ネットワーク上のノード管理インターフェースに固有の IPv4 アドレスです。</block>
+  <block id="5ba022aa97c9316a9962bea92efe8e4f" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block>複数の vCenter Server インスタンスを使用している場合は証明書をアップグレードします</block>
+  <block id="cc2976705cd90914f7093a509084c243" category="paragraph">複数の vCenter Server インスタンスで作業する場合は、自己署名証明書を証明機関 (CA) 署名証明書にアップグレードします。</block>
+  <block id="15f0aef685a07d8a64ee213328fd4abf" category="list-text">最初のノード VM から VMware vSphere の展開タイプ用の ONTAP ツールを決定します。</block>
+  <block id="843e69439f5c77bf5c54644b48190fc1" category="admonition">VMware vSphere HA 導入用の ONTAP ツールの場合、最初のノード (node1) のメンテナンス コンソールのユーザー パスワードを変更する必要があります。</block>
 </blocks>

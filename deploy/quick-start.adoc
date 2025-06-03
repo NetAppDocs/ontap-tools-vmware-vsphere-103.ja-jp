@@ -64,9 +64,9 @@ ONTAP toolsのユーザインターフェイスを使用して、ローカルス
 * link:../configure/associate-storage-backend.html["ストレージバックエンドをvCenter Serverインスタンスに関連付ける"]
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6"]複数のvCenter Serverを使用している場合は、証明書をアップグレードします。
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6"]複数の vCenter Server インスタンスを使用している場合は証明書をアップグレードします
 [role="quick-margin-para"]
-複数のvCenter Serverを使用している場合は、自己署名証明書を認証局（CA）署名証明書にアップグレードします。
+複数の vCenter Server インスタンスで作業する場合は、自己署名証明書を証明機関 (CA) 署名証明書にアップグレードします。
 
 [role="quick-margin-list"]
 * link:../manage/certificate-manage.html["証明書の管理"]

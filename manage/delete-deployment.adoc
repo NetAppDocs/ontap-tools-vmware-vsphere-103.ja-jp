@@ -14,7 +14,7 @@ summary: ONTAP tools for VMware vSphereの導入環境を削除したら、導�
 VMware環境のONTAP toolsに専用のONTAPクラスタを使用すると、未使用のFlexVolボリュームが多数作成されます。ONTAP Tools for VMware vSphereを削除したら、パフォーマンスへの影響を回避するためにFlexVolボリュームを削除する必要があります。
 
 .手順
-. プライマリノードVMからONTAP Tools for VMware vSphereの導入タイプを決定します。
+. 最初のノード VM から VMware vSphere の展開タイプ用の ONTAP ツールを決定します。
 +
 _cat /opt/netapp/meta/ansible vars.yaml | grep -i protocol_
 
