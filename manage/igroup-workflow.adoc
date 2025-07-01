@@ -1,0 +1,240 @@
+---
+permalink: manage/igroup-workflow.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= VMware vSphere の ONTAP ツールにおける igroup とエクスポート ポリシーを理解する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+イニシエータグループ（igroup）は、FCプロトコルホストのワールドワイドポート名（WWPN）またはiSCSIホストの修飾ノード名（Qualified Node Name）のテーブルです。igroupを定義してLUNにマッピングすることで、どのイニシエータがLUNにアクセスできるかを制御できます。
+
+VMware vSphere 9.x 向け ONTAP ツールでは、igroup はフラットな構造で作成および管理され、vCenter 内の各データストアは単一の igroup に関連付けられていました。このモデルでは、複数のデータストア間での igroup の柔軟性と再利用性が制限されていました。VMwarevSphere 10.x 向け ONTAP ツールでは、ネストされた igroup が導入されています。vCenter 内の各データストアは親 igroup に関連付けられ、各ホストはその親の下にある子 igroup にリンクされます。VMwareユーザー定義の名前を持つカスタム親igroupを定義し、複数のデータストア間で再利用することで、igroupをより柔軟かつ相互接続された形で管理できます。vSphere 向け ONTAP ツールで LUN とデータストアを効果的に管理するには、igroup のワークフローを理解することが不可欠です。以下の例に示すように、ワークフローによって生成されるigroup構成は異なります。
+
+
+NOTE: 記載されている名前は説明のみを目的としており、実際のigroup名を指すものではありません。ONTAPツールで管理されるigroupでは、プレフィックス「otv_」が使用されます。カスタムigroupには任意の名前を付けることができます。
+
+|===
+
+
+| 期間 | 説明 
+
+
+| DS<番号> | データストア 
+
+
+| iqn<番号> | イニシエータIQN 
+
+
+| ホスト<番号> | ホストMoRef 
+
+
+| lun<数値> | LUN ID 
+
+
+| <DSName>Igroup<番号> | デフォルト（ONTAPツール管理）の親igroup 
+
+
+| <Host-Moref>Igroup<番号> | 子igroup 
+
+
+| CustomIgroup<数値> | ユーザー定義のカスタム親 igroup 
+
+
+| ClassicIgroup<番号> | ONTAP ツール 9.x バージョンで使用される igroup。 
+|===
+.例1：
+1つのイニシエータを持つ単一のホスト上にデータストアを作成する
+
+*ワークフロー*: [作成] DS1 (lun1): host1 (iqn1)
+
+*結果*：
+
+* DS1Igroup：
++
+** ホスト1Iグループ → (iqn1: lun1)
+
+
+
+
+ONTAPシステム上にDS1の親igroup DS1Igroupが作成され、子igroup host1Igroupがlun1にマッピングされます。LUNは常に子igroupにマッピングされます。
+
+.例2：
+既存のデータストアを追加のホストにマウントする
+
+*ワークフロー*: [マウント] DS1 (lun1): host2 (iqn2)
+
+*結果*：
+
+* DS1Igroup：
++
+** ホスト1Iグループ → (iqn1: lun1)
+** ホスト2Iグループ → (iqn2: lun1)
+
+
+
+
+子 igroup host2Igroup が作成され、既存の親 igroup DS1Igroup に追加されます。
+
+.例3：
+ホストからデータストアをアンマウントする
+
+*ワークフロー*: [アンマウント] DS1 (lun1): host1 (iqn1)
+
+*結果*：
+
+* DS1Igroup：
++
+** ホスト2Iグループ → (iqn2: lun1)
+
+
+
+
+host1igroup は階層から削除されます。子 igroup は明示的に削除されません。削除は、次の 2 つの条件で発生します。• LUN がマッピングされていない場合、ONTAP システムによって子 igroup が削除されます。• スケジュールされたクリーンアップ ジョブによって、LUN がマッピングされていない、未割り当ての子 igroup が削除されます。これらのシナリオは、ONTAP ツールで管理されている igroup にのみ適用され、カスタム作成された igroup には適用されません。
+
+.例4：
+データストアの削除
+
+*ワークフロー*: [削除] DS1 (lun1): host2 (iqn2)
+
+*結果*：
+
+* DS1Igroup：
++
+** ホスト2Iグループ → (iqn2: lun1)
+
+
+
+
+親igroupと子igroupは、別のデータストアが親igroupを再利用しない場合に削除されます。子igroupは明示的に削除されることはありません。
+
+.例5：
+カスタム親igroupの下に複数のデータストアを作成する
+
+*ワークフロー*:
+
+* [作成] DS2 (lun2): ホスト1 (iqn1)、ホスト2 (iqn2)
+* [作成] DS3 (lun3): host1 (iqn1)、host3 (iqn3)
+
+
+*結果*：
+
+* CustomIgroup1：
++
+** host1Igroup → (iqn1: lun2、lun3)
+** ホスト2Iグループ → (iqn2: lun2)
+** ホスト3Iグループ → (iqn3: lun3)
+
+
+
+
+CustomIgroup1 は DS2 用に作成され、DS3 で再利用されます。共有された親 igroup の下に子 igroup が作成または更新され、各子 igroup は対応する LUN にマッピングされます。
+
+.例6：
+カスタム親 igroup の下にある 1 つのデータストアを削除します。
+
+*ワークフロー*: [削除] DS2 (lun2): host1 (iqn1)、host2 (iqn2)
+
+*結果*：
+
+* CustomIgroup1：
++
+** ホスト1Iグループ → (iqn1: lun3)
+** ホスト3Iグループ → (iqn3: lun3)
+
+
+* CustomIgroup1 は再利用されませんが、削除されません。
+* LUN がマップされていない場合、ONTAP システムは host2Igroup を削除します。
+* host1igroup は DS3 の lun3 にマッピングされているため削除されません。カスタム igroup は、再利用ステータスに関わらず削除されることはありません。
+
+
+.例7：
+vVols データストアの拡張（ボリュームの追加）
+
+*ワークフロー*:
+
+拡張前:
+
+[展開] DS4 (lun4): host4 (iqn4)
+
+* DS4Igroup: host4Igroup → (iqn4: lun4)
+
+
+拡張後:
+
+[展開] DS4 (lun4、lun5): host4 (iqn4)
+
+* DS4Igroup: host4Igroup → (iqn4: lun4、lun5)
+
+
+新しい LUN が作成され、既存の子 igroup host4Igroup にマップされます。
+
+.例8：
+vVols データストアの縮小（ボリュームの削除）
+
+*ワークフロー*:
+
+収縮前：
+
+[縮小] DS4 (lun4、lun5): host4 (iqn4)
+
+* DS4Igroup: host4Igroup → (iqn4: lun4、lun5)
+
+
+縮小後:
+
+[縮小] DS4 (lun4): host4 (iqn4)
+
+* DS4Igroup: host4Igroup → (iqn4: lun4)
+
+
+指定されたLUN（lun5）は子igroupからマッピング解除されています。igroupは、マッピングされたLUNが少なくとも1つある限りアクティブなままです。
+
+.例9：
+ONTAPツール9から10への移行（igroupの正規化）
+
+* ワークフロー *
+
+VMware vSphere 9.x バージョンの ONTAP ツールは、階層型 igroup をサポートしていません。10.3以降のバージョンへの移行時には、igroup を階層構造に正規化する必要があります。
+
+移行前:
+
+[移行] DS6 (lun6、lun7): host6 (iqn6)、host7 (iqn7) → ClassicIgroup1 (iqn6 & iqn7: lun6、lun7)
+
+ONTAP ツール 9.x ロジックでは、1 対 1 のホスト マッピングを強制することなく、igroup ごとに複数のイニシエータが許可されます。
+
+移行後:
+
+[移行] DS6 (lun6、lun7): host6 (iqn6)、host7 (iqn7) → ClassicIgroup1: otv_ClassicIgroup1 (iqn6 & iqn7: lun6、lun7)
+
+移行中:
+
+* 新しい親 igroup (ClassicIgroup1) が作成されます。
+* 元の igroup の名前は otv_ プレフィックス付きで変更され、子 igroup になります。
+
+
+これにより、階層モデルへの準拠が保証されます。
+
+.関連トピック
+https://docs.netapp.com/us-en/ontap/san-admin/igroups-concept.html["igroupについて"]
+
+
+
+== 輸出政策
+
+エクスポートポリシーは、VMware vSphere 向け ONTAP ツールにおける NFS データストアへのアクセスを制御します。データストアにアクセスできるクライアントとその権限を定義します。エクスポートポリシーは ONTAP システムで作成および管理され、NFS データストアに関連付けることでアクセス制御を適用できます。各エクスポートポリシーは、アクセスを許可するクライアント（IP アドレスまたはサブネット）と付与する権限（読み取り専用または読み取り/書き込み）を指定するルールで構成されます。
+
+ONTAP Tools for VMware vSphere で NFS データストアを作成する際、既存のエクスポートポリシーを選択するか、新しいエクスポートポリシーを作成できます。作成したエクスポートポリシーはデータストアに適用され、承認されたクライアントのみがデータストアにアクセスできるようになります。
+
+新しいESXiホストにNFSデータストアをマウントすると、VMware vSphere用のONTAPツールによって、そのデータストアに関連付けられた既存のエクスポートポリシーにホストのIPアドレスが追加されます。これにより、新しいホストは新しいエクスポートポリシーを作成しなくてもデータストアにアクセスできるようになります。
+
+ESXiホストからNFSデータストアを削除またはアンマウントすると、ONTAP Tools for VMware vSphereは、エクスポートポリシーからホストのIPアドレスを削除します。他のホストがそのエクスポートポリシーを使用していない場合は、そのポリシーは削除されます。NFSデータストアを削除すると、ONTAP Tools for VMware vSphereは、そのデータストアに関連付けられているエクスポートポリシーを削除します（他のデータストアで再利用されていない場合）。エクスポートポリシーが再利用されている場合は、ホストのIPアドレスが保持され、変更されません。データストアを削除すると、エクスポートポリシーによってホストのIPアドレスの割り当てが解除され、デフォルトのエクスポートポリシーが割り当てられます。これにより、ONTAPシステムは必要に応じてデータストアにアクセスできるようになります。
+
+エクスポートポリシーを異なるデータストア間で再利用する場合、割り当て方法は異なります。エクスポートポリシーを再利用する際は、新しいホストIPアドレスをポリシーに追加できます。共有エクスポートポリシーを使用しているデータストアを削除またはアンマウントしても、ポリシーは削除されません。ポリシーは変更されず、ホストIPアドレスは他のデータストアと共有されているため削除されません。エクスポートポリシーの再利用は、アクセスやレイテンシの問題につながる可能性があるため、推奨されません。
+
+.関連トピック
+https://docs.netapp.com/us-en/ontap/nfs-config/create-export-policy-task.html["エクスポートポリシーを作成する"]
