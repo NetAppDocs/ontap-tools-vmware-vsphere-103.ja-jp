@@ -128,7 +128,13 @@ ONTAP tools for VMware vSphere 10.0から10.1にアップグレードする場�
 
 .手順
 . ONTAP tools for VMware vSphereアップグレードISOをコンテンツライブラリにアップロードします。
-. プライマリVMページで、*[Actions]*>*[Edit Settings]*を選択します。
+. プライマリ VM ページで、[*アクション*] > [*設定の編集*] を選択します。プライマリ VM 名を識別するには:
++
+.. 任意のノードで診断シェルを有効にする
+.. 次のコマンドを実行します。
+`grep sourceHost /opt/netapp/meta/ansible_vars.yaml`
+
+
 . CD/DVDドライブ*フィールドの編集設定ウィンドウで、コンテンツライブラリISOファイルを選択します。
 . ISOファイルを選択し、* OK *を選択します。[CD/DVDドライブ]フィールドで[接続済み]チェックボックスを選択します。image:../media/primaryvm-edit-settings.png["設定を編集します"]
 . vCenter Serverで、ONTAP toolsへのコンソールを開きます。

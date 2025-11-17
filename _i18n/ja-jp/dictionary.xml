@@ -2026,7 +2026,6 @@
   <block id="cd457aeee08a9f6476660a1f15284160" category="paragraph">ハードディスクを追加したら、それぞれの構成のVMのリソースを更新し、プライマリVMを再起動します。</block>
   <block id="82c4bde04ac809c6d15f232949e072ce" category="paragraph">新しいHDDが作成されます。Dynamic Storage Provisionerは、このHDDを使用してボリュームを生成またはレプリケートします。</block>
   <block id="b06f0e274f6c746f0d30521b5c7f392e" category="list-text">ONTAP tools for VMware vSphereアップグレードISOをコンテンツライブラリにアップロードします。</block>
-  <block id="dd5382558ec4a47dfbc203fb25698772" category="list-text">プライマリVMページで、*[Actions]*&gt;*[Edit Settings]*を選択します。</block>
   <block id="ef9e53e40d78d57abe78283a3603eb4e" category="list-text">CD/DVDドライブ*フィールドの編集設定ウィンドウで、コンテンツライブラリISOファイルを選択します。</block>
   <block id="54a029420d74c0dff69239155cf510b5" category="inline-image-macro">設定を編集します</block>
   <block id="2c2d3019834934bb25449edddc396321" category="list-text">ISOファイルを選択し、* OK *を選択します。[CD/DVDドライブ]フィールドで[接続済み]チェックボックスを選択します。<block ref="af57a506b85774ef3a9f849e2b26e258" category="inline-image-macro-rx" type="image"></block></block>
@@ -2268,4 +2267,7 @@
   <block id="d416ef8edb2844634dbe8cfff2e77f9a" category="sidebar">igroupとエクスポートポリシーを理解する</block>
   <block id="019227f341a3522deb6e80d962611b44" category="sidebar">ONTAP Tools for VMware vSphere 9.xxを10.3に移行</block>
   <block id="d619f73b597358ef5140938f37254d97" category="sidebar">VMware vSphere の最新の ONTAP ツールへの移行</block>
+  <block id="a928a1b805644ea87a643f7f8d60a477" category="list-text">プライマリ VM ページで、[*アクション*] &gt; [*設定の編集*] を選択します。プライマリ VM 名を識別するには:</block>
+  <block id="75a86edd37c9b2122be450b28fa09149" category="list-text">任意のノードで診断シェルを有効にする</block>
+  <block id="e016d50ae26af4214e6a864c1c2c8db5" category="list-text">次のコマンドを実行します。<block ref="1ebe86b64a17c55ae52f4488cffae75f" prefix=" " category="inline-code"></block></block>
 </blocks>
