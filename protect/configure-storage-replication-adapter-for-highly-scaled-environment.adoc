@@ -54,7 +54,7 @@ summary: 大規模な環境で最適なパフォーマンスを実現するに�
 |===
 また、 `StorageProvider.autoResignatureMode`オプションを有効にする必要があります。
 
-ストレージプロバイダの設定の変更の詳細については、を参照してください https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-provider-settings.html["Change Storage Provider Settings"]。
+ストレージプロバイダーの設定変更に関する詳細については、 https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-provider-settings.html["Change Storage Provider Settings"^]を参照してください。
 
 
 
@@ -65,4 +65,4 @@ summary: 大規模な環境で最適なパフォーマンスを実現するに�
 
 NOTE: 指定するタイムアウト間隔は最大値です。最大タイムアウトに達することはありません。ほとんどのコマンドは、設定された最大タイムアウト間隔内で終了します。
 
-SANプロバイダ設定の変更については、を参照してください https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-settings.html["Change Storage Settings"]。
+SAN プロバイダの設定を変更するには、 https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/how-do-i-protect-my-environment/advanced-srm-configuration/reconfigure-srm-settings/change-storage-settings.html["Change Storage Settings"^]を参照してください。

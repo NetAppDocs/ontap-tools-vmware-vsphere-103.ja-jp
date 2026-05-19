@@ -220,7 +220,7 @@ ONTAP ツール 9.x ロジックでは、1 対 1 のホスト マッピングを
 これにより、階層モデルへの準拠が保証されます。
 
 .関連トピック
-https://docs.netapp.com/us-en/ontap/san-admin/igroups-concept.html["igroupについて"]
+https://docs.netapp.com/us-en/ontap/san-admin/igroups-concept.html["igroupについて"^]
 
 
 
@@ -237,4 +237,4 @@ ESXiホストからNFSデータストアを削除またはアンマウントす�
 エクスポートポリシーを異なるデータストア間で再利用する場合、割り当て方法は異なります。エクスポートポリシーを再利用する際は、新しいホストIPアドレスをポリシーに追加できます。共有エクスポートポリシーを使用しているデータストアを削除またはアンマウントしても、ポリシーは削除されません。ポリシーは変更されず、ホストIPアドレスは他のデータストアと共有されているため削除されません。エクスポートポリシーの再利用は、アクセスやレイテンシの問題につながる可能性があるため、推奨されません。
 
 .関連トピック
-https://docs.netapp.com/us-en/ontap/nfs-config/create-export-policy-task.html["エクスポートポリシーを作成する"]
+https://docs.netapp.com/us-en/ontap/nfs-config/create-export-policy-task.html["エクスポートポリシーを作成する"^]

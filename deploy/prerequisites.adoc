@@ -140,7 +140,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 | 8人以上 | 大規模 
 |===
-詳細については、を参照してください https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html["VMware Live Site Recoveryの運用上の制限"]。
+詳細については、 https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html["VMware Live Site Recoveryの運用上の制限"^]を参照してください。
 
 
 

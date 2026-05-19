@@ -37,7 +37,7 @@ NOTE: HA導入をあとで有効にする場合は、ONTAPツールをホスト�
 
 
 
-NOTE: 詳細については https://blogs.vmware.com/vsphere/2020/01/creating-and-using-content-library.html["コンテンツライブラリの作成と使用"]、ブログを参照してください。
+NOTE: 詳細については、 https://blogs.vmware.com/vsphere/2020/01/creating-and-using-content-library.html["コンテンツライブラリの作成と使用"^]ブログを参照してください。
 
 
 NOTE: 導入を進める前に、インベントリ上のクラスタのDistributed Resource Scheduler（DRS）を「保守的」に設定してください。これにより、インストール中にVMが移行されなくなります。

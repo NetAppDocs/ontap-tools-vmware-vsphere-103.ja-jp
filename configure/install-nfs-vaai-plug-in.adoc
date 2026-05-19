@@ -14,7 +14,7 @@ summary: ONTAP tools for VMware vSphereを使用して、NetApp NFS Plug-in for 
 NFS vStorage API for Array Integration（NFS VAAI）プラグインは、VMware vSphereとNFSストレージアレイを統合するソフトウェアコンポーネントです。ONTAP tools for VMware vSphereを使用してNFS VAAIプラグインをインストールし、NFSストレージアレイの高度な機能を活用して、特定のストレージ関連処理をESXiホストからストレージアレイ自体にオフロードします。
 
 .開始する前に
-* インストールパッケージをダウンロードし https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["NetApp NFS Plug-in for VMware VAAI"]ます。
+*  https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai/downloads-tab["NetApp NFS Plug-in for VMware VAAI"^]インストールパッケージをダウンロードします。
 * ESXiホストとvSphere 7.0U3の最新のパッチ以降のバージョンとONTAP 9.14.1以降のバージョンがあることを確認します。
 * NFSデータストアをマウント
 
@@ -43,11 +43,11 @@ NFS VAAIプラグインをインストールしてESXiホストをリブート�
 * 該当するNFSサーバでVAAIサポートのオプションを設定する必要があります。
 
 
-手順の詳細については https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload["VAAIコピーオフロードの正しいNFSエクスポートポリシーを設定する"]、技術情報アーティクルを参照してください。
+手順の詳細については、 https://kb.netapp.com/on-prem/ontap/DM/VAAI/VAAI-KBs/Configure_the_correct_NFS_export_policies_for_VAAI_copy_offload["VAAIコピーオフロードの正しいNFSエクスポートポリシーを設定する"^] KB記事を参照してください。
 
 .関連情報
-https://docs.netapp.com/us-en/ontap/nfs-admin/support-vmware-vstorage-over-nfs-concept.html["VMware vStorage over NFSのサポート"]
+https://docs.netapp.com/us-en/ontap/nfs-admin/support-vmware-vstorage-over-nfs-concept.html["VMware vStorage over NFSのサポート"^]
 
-https://docs.netapp.com/us-en/ontap/nfs-admin/enable-disable-nfsv40-task.html["NFSv4.0を有効または無効にする"]
+https://docs.netapp.com/us-en/ontap/nfs-admin/enable-disable-nfsv40-task.html["NFSv4.0を有効または無効にする"^]
 
-https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-nfsv42-concept.html#nfs-v4-2-security-labels["NFSv4 4.2 の ONTAP サポート"]
+https://docs.netapp.com/us-en/ontap/nfs-admin/ontap-support-nfsv42-concept.html#nfs-v4-2-security-labels["NFSv4 4.2 の ONTAP サポート"^]

@@ -25,7 +25,7 @@ VMware Live Site Recovery用Storage Replication Adapter（SRA）を実行する�
 VMware Live Site Recoveryのインストールに関するドキュメントは、VMwareサイトにあります。
 
 +
-https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"]
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"^]
 
 * SRA
 +
@@ -54,7 +54,7 @@ https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/
 VMware Live Site Recoveryのインストールに関するドキュメントは、VMwareサイトで参照できます。
 
 +
-https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"]
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"^]
 
 * SRA
 +

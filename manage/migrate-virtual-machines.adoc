@@ -50,7 +50,7 @@ VMwareでは、現在、VMテンプレートにクローニングされた仮想
 
 保護された仮想マシンのクローン作成がサポートされています。
 
-詳細については、を参照してください https://docs.vmware.com/en/VMware-Horizon/2103/virtual-desktops/GUID-B5020738-8649-4308-A8B0-70AF80527DF6.html["クローニング用仮想マシンの作成"]。
+詳細については、 https://docs.vmware.com/en/VMware-Horizon/2103/virtual-desktops/GUID-B5020738-8649-4308-A8B0-70AF80527DF6.html["クローニング用仮想マシンの作成"^]を参照してください。
 
 
 

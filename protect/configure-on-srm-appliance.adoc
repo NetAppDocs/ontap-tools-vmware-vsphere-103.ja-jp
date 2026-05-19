@@ -14,7 +14,7 @@ summary: VMware Live Site Recoveryアプライアンスを導入したら、VMwa
 VMware Live Site Recoveryアプライアンスを導入したら、VMware Live Site RecoveryアプライアンスにSRAを設定する必要があります。SRAを正しく設定すると、VMware Live Site Recoveryアプライアンスがディザスタリカバリ管理のためにSRAと通信できるようになります。ONTAP Tools for VMware vSphereのクレデンシャル（IPアドレス）をVMware Live Site Recoveryアプライアンスに保存して、VMware Live Site RecoveryアプライアンスとSRAの間の通信を有効にする必要があります。
 
 .開始する前に
-から_tar.gz_ファイルをダウンロードしておく必要があります https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab["NetAppサポートサイト"]。
+_tar.gz_ ファイルは https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab["NetAppサポートサイト"^]からダウンロードする必要があります。
 
 * このタスクについて *
 

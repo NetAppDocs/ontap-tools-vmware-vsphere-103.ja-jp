@@ -158,4 +158,4 @@ NOTE: このページに記載されているエラーコードは参照用で�
 
 NOTE: ONTAP tools for VMware vSphere 10.3は、ゼロRPOをサポートします。
 
-詳細はこちら https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["バージョン10.0から10.1へのアップグレードが失敗した場合にONTAP tools for VMware vSphereをリストアする方法"]
+詳細については、 https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["バージョン10.0から10.1へのアップグレードが失敗した場合にONTAP tools for VMware vSphereをリストアする方法"^]

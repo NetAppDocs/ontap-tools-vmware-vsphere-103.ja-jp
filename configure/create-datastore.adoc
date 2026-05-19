@@ -96,16 +96,16 @@ Virtual Machine File System（VMFS）は、VMware vSphere環境に仮想マシ�
 * ASA R2ストレージシステムで、SVMユーザ用のアグリゲートにSVMをマッピングします。
 * NVMe/TCPプロトコルを使用している場合はESXiホストを設定します。
 +
-.. を確認します。 https://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=49677&releases_filter=589,578,518,508,448&deviceCategory=san&details=1&partner=399&Protocols=1&transportTypes=3&isSVA=0&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc["VMware Compatibility Guide"]
+.. 確認する https://www.vmware.com/resources/compatibility/detail.php?deviceCategory=san&productid=49677&releases_filter=589,578,518,508,448&deviceCategory=san&details=1&partner=399&Protocols=1&transportTypes=3&isSVA=0&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc["VMware Compatibility Guide"^]
 +
 
 NOTE: VMware vSphere 7.0 U3以降のバージョンでは、NVMe/TCPプロトコルがサポートされます。ただし、VMware vSphere 8.0以降のバージョンを推奨します。
 
 .. ネットワークインターフェイスカード（NIC）ベンダーがNVMe/TCPプロトコルを使用するESXi NICをサポートしているかどうかを確認します。
 .. NICベンダーの仕様に従ってESXi NICをNVMe/TCP用に設定します。
-.. VMware vSphere 7リリースを使用している場合は、VMwareサイトの手順に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/configure-adapters-for-nvme-over-tcp-storage/configure-vmkernel-binding-for-the-tcp-adapter.html["NVMe over TCPアダプタ用のVMkernelバインドの設定"]NVMe/TCPポートバインドを設定します。VMware vSphere 8リリースを使用している場合は、に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-tcp-on-esxi.html["ESXiでのNVMe over TCPの設定"]NVMe/TCPポートバインドを設定します。
-.. VMware vSphere 7リリースの場合は、ページの手順に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["NVMe over RDMAまたはNVMe over TCPソフトウェアアダプタの有効化"]NVMe/TCPソフトウェアアダプタを設定します。VMware vSphere 8リリースの場合は、に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-rdma-roce-v2-on-esxi/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["ソフトウェアNVMe over RDMAまたはNVMe over TCPアダプタの追加"]NVMe/TCPソフトウェアアダプタを設定します。
-.. link:../configure/discover-storage-systems-and-hosts.html["ストレージシステムとホストの検出"]ESXiホストでアクションを実行します。詳細については、を参照してください https://community.netapp.com/t5/Tech-ONTAP-Blogs/How-to-Configure-NVMe-TCP-with-vSphere-8-0-Update-1-and-ONTAP-9-13-1-for-VMFS/ba-p/445429["VMFSデータストア用にNVMe/TCPをvSphere 8.0 Update 1およびONTAP 9 VMFS.13.1で設定する方法"]。
+.. VMware vSphere 7リリースを使用する場合は、VMwareサイトの手順に従って https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/configure-adapters-for-nvme-over-tcp-storage/configure-vmkernel-binding-for-the-tcp-adapter.html["NVMe over TCPアダプタ用のVMkernelバインドの設定"^]NVMe/TCPポートバインディングを設定してください。VMware vSphere 8リリースを使用する場合は、 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-tcp-on-esxi.html["ESXiでのNVMe over TCPの設定"^]に従ってNVMe/TCPポートバインディングを設定してください。
+.. VMware vSphere 7リリースの場合は、 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage-7-0/about-vmware-nvme-storage/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["NVMe over RDMAまたはNVMe over TCPソフトウェアアダプタの有効化"^]ページの手順に従ってNVMe/TCPソフトウェアアダプタを設定してください。VMware vSphere 8リリースの場合は、 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/about-vmware-nvme-storage/configuring-nvme-over-rdma-roce-v2-on-esxi/add-software-nvme-over-rdma-or-nvme-over-tcp-adapters.html["ソフトウェアNVMe over RDMAまたはNVMe over TCPアダプタの追加"^]に従ってNVMe/TCPソフトウェアアダプタを設定してください。
+.. ESXiホスト上でlink:../configure/discover-storage-systems-and-hosts.html["ストレージシステムとホストの検出"]アクションを実行します。詳細については、 https://community.netapp.com/t5/Tech-ONTAP-Blogs/How-to-Configure-NVMe-TCP-with-vSphere-8-0-Update-1-and-ONTAP-9-13-1-for-VMFS/ba-p/445429["VMFSデータストア用にNVMe/TCPをvSphere 8.0 Update 1およびONTAP 9 VMFS.13.1で設定する方法"^]を参照してください。
 
 
 * NVMe/FCプロトコルを使用する場合は、次の手順を実行してESXiホストを設定します。
@@ -117,11 +117,11 @@ NOTE: VMware vSphere 7.0 U3以降のバージョンでは、NVMe/TCPプロトコ
 
 
 
-ONTAP SVMをFCプロトコル用に設定する方法については、を参照してください https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-fc-task.html["FC用のSVMの設定"]。
+FC プロトコル用に ONTAP SVM を設定するには、 https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-fc-task.html["FC用のSVMの設定"^]を参照してください。
 
-VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、を参照してください https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP を搭載したESXi 8.x向けのNVMe-oFホスト構成"]。
+VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、 https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP を搭載したESXi 8.x向けのNVMe-oFホスト構成"^]を参照してください。
 
-VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP NVMe/FC Host Configuration Guide"]、およびを参照して http://www.netapp.com/us/media/tr-4684.pdf["TR-4684"]ください。
+VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、 https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP NVMe/FC Host Configuration Guide"^]および http://www.netapp.com/us/media/tr-4684.pdf["TR-4684"^]を参照してください。
 
 .手順
 . vSphere Clientにログインします。
