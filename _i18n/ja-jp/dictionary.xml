@@ -1552,7 +1552,6 @@
   <block id="23829b8d6575f7cd3e20a5e92b475a9e" category="doc">ONTAP Tools for VMware vSphereのアンインストール</block>
   <block id="f54e212052df635bcc70d25302fd583e" category="paragraph">ONTAP tools for VMware vSphereをアンインストールすると、ツール内のデータがすべて削除されます。</block>
   <block id="82a00fc1c0ae6d437f6d942c64bee898" category="list-text">ONTAP tools for VMware vSphereで管理されるデータストアから、すべての仮想マシンを削除または移動します。</block>
-  <block id="41e0fa10828ee2d85cfd4c0ff833ac64" category="inline-link">Storage vMotion</block>
   <block id="f0833ce92c23eb056dde238669740988" category="list-text"><block ref="523efdef8100699453c6b07ce8f4921c" category="inline-link-macro-rx"></block>ONTAP Tools for VMware vSphereを使用して作成されます。</block>
   <block id="1d920979688b28c7b10ef84d14436f95" category="list-text">VASAプロバイダを有効にした場合は、ONTAPツールで*[設定]*&gt;*[VASA Provider設定]*&gt;*[登録解除]*を選択して、すべてのvCenterサーバからVASAプロバイダの登録を解除します。</block>
   <block id="02a713a12e2b216b65a52896d0728a0a" category="list-text">vCenter Serverインスタンスからすべてのストレージバックエンドの関連付けを解除します。を参照してください <block ref="8f766e539ddb39a7c07c0c84dded1670" category="inline-link-macro-rx"></block>。</block>
@@ -1987,8 +1986,6 @@
   <block id="399a5cfe88876e091f96014da7798994" category="list-text">ONTAPシステムマネージャのユーザインターフェイスで、検索バーでボリュームの名前を検索し、名前を選択してボリュームを開きます。[Snapshot]に移動し、そのボリュームのSnapshotを追加します。</block>
   <block id="a780a238f22a802c24a2182aea27323f" category="paragraph">* vCenterでVMware vSphere VM用のONTAPツールのスナップショットを作成します（HA導入の場合は3 VM、非HA導入の場合は1 VM）*</block>
   <block id="c3710cf1c44da535612cf08236cee98f" category="list-text">vSphere Clientユーザインターフェイスで、VMを選択します。</block>
-  <block id="a6d135b70268e6dae6e2414dc9c7e465" category="inline-link">仮想マシンのスナップショットの作成</block>
-  <block id="ed05024ef185f71f630610fa2998b97c" category="list-text">[Snapshots]タブに移動し、*[Take Snapshot]*ボタンを選択します。VMの休止スナップショットを作成します。詳細については、を参照してください<block ref="cfbcb02d8f4029fded9e80960c9fdffc" category="inline-link-rx"></block>。</block>
   <block id="07cf559ee7bbc8841180f1dd59c2917f" category="paragraph">アップグレードを実行する前に、「generate-support-bundle-job」というプレフィックスが付いた完了したポッドをログバンドルから削除してください。サポートバンドルの生成を実行中の場合は、完了してからポッドを削除します。</block>
   <block id="7817c7412ad536f5c02bd959934f66d5" category="paragraph">どのようなアップグレードでも、100 GBのハードディスクドライブ（HDD）を追加する必要があります。HDDを追加するには、次のタスクを実行します。</block>
   <block id="11873b433682caa870371cc1631ef90f" category="list-text">シングルノード構成のVMを選択するか、HA構成の3つすべてのVMを選択します。</block>
@@ -2247,7 +2244,6 @@
   <block id="666dbb89f7307770629c19db67953504" category="list-text">ESXiホスト上で<block ref="c076a6b54534640d64418e3f25ccabbb" category="inline-link-macro-rx"></block>アクションを実行します。詳細については、<block ref="7d8be8ab6f925d44e6096143b50930eb" category="inline-link-rx"></block>を参照してください。</block>
   <block id="1250632adcebb5fdde746f68f5f5d1ab" category="paragraph">FC プロトコル用に ONTAP SVM を設定するには、<block ref="9a85cf35d1c576c50eca5d001fed7770" category="inline-link-rx"></block>を参照してください。</block>
   <block id="9a2c5be73de128ee1c042576f0081228" category="paragraph">VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、<block ref="5db8b1ba8249e6aa04254bfda3e03cad" category="inline-link-rx"></block>を参照してください。</block>
-  <block id="dd7acf96403efe96c19052c3b7b43696" category="paragraph">VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、<block ref="5b342c912562dcb58ee3f3648204c817" category="inline-link-rx"></block>および<block ref="7a29b2f31035a451d5b068728d2b79a7" category="inline-link-rx"></block>を参照してください。</block>
   <block id="dea9ea86828f4eeb20d1d426a67fb54e" category="list-text"><block ref="eb8871d084e5444d76435f2f53088444" category="inline-link-rx"></block>インストールパッケージをダウンロードします。</block>
   <block id="cef9325a79cb8ba5e8e01d588772d728" category="paragraph">手順の詳細については、<block ref="0979244af97101600923fad626326667" category="inline-link-rx"></block> KB記事を参照してください。</block>
   <block id="3155093ff66d6bd7b727ca8a29f56ab8" category="paragraph"><block ref="3155093ff66d6bd7b727ca8a29f56ab8" category="inline-link-rx"></block></block>
@@ -2262,7 +2258,6 @@
   <block id="2065c7b470f4d228b592158785fc8c0b" category="paragraph"><block ref="2065c7b470f4d228b592158785fc8c0b" category="inline-link-rx"></block></block>
   <block id="da0317a707b799e20d52a9ed48600a5d" category="paragraph">詳細については、<block ref="d715c2f17cf44a9fe16a53988f715a0c" category="inline-link-rx"></block>を参照してください。</block>
   <block id="99ff68e0a5e3eff8350235e4aa349b33" category="list-text">仮想マシンを削除するには、<block ref="730771976bf8809d0e1b18b2b9db8122" category="inline-link-rx"></block>を参照してください。</block>
-  <block id="2cc4cd106b8b28a2a7a4dc41aab2ccb2" category="list-text">管理対象外のデータストアに移動するには、<block ref="c6d1808825e9c8d51ec3ee5f99c953bd" category="inline-link-rx"></block>を参照してください。</block>
   <block id="dea491514edb56a330b46ce4403a9ff0" category="cell">手順：1.<block ref="393201960d4eefccacb06cc7ccdc8cfc" category="inline-link-macro-rx"></block> 2.<block ref="df8c7098182657a68e9193cd3f4cbf10" category="inline-link-rx"></block></block>
   <block id="f00c083ca28330574bbee60ec74a082c" category="cell">手順：1.環境から ONTAP tools 9.xx を削除します。<block ref="79b3439203bbb78183de845f86175d16" category="inline-link-rx"></block> NetApp ナレッジベースの記事を参照してください。2.<block ref="ed7f206c59f60e7024e5e58e1da041e1" category="inline-link-macro-rx"></block> 3.<block ref="a29d94f131e388c7ee7c4a56d062be87" category="inline-link-macro-rx"></block> 4.<block ref="df8c7098182657a68e9193cd3f4cbf10" category="inline-link-rx"></block></block>
   <block id="ef16d9c852f6889c906737f47c81fe38" category="paragraph">_tar.gz_ ファイルは<block ref="db8756d7f65d6a8e593e69ba45adbb2e" category="inline-link-rx"></block>からダウンロードする必要があります。</block>
@@ -2270,4 +2265,8 @@
   <block id="cc9798c15a976cd5b7bdcf483174a390" category="paragraph">SAN プロバイダの設定を変更するには、<block ref="44bb7c66e0bef8f100bbfa7ad4ff5c75" category="inline-link-rx"></block>を参照してください。</block>
   <block id="3daf74ebef2f034c4ab4baf59f15dc51" category="paragraph"><block ref="3daf74ebef2f034c4ab4baf59f15dc51" category="inline-link-rx"></block></block>
   <block id="643c0215c2c7179633d4deb5f3a78c6b" category="paragraph">詳細については、<block ref="d45262f681072e6d1fc0e869b99c2a10" category="inline-link-rx"></block></block>
+  <block id="57804fdd8ba31e5051758224c22549a1" category="paragraph">VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、<block ref="5b342c912562dcb58ee3f3648204c817" category="inline-link-rx"></block>および<block ref="25f6eb92bf39f9dbaabe4b65d71fa8c4" category="inline-link-rx"></block>を参照してください。</block>
+  <block id="ae0aa1a81eb18e69d5fc662eaee0efd5" category="inline-link">Broadcom技術ドキュメント</block>
+  <block id="ea979d9a9cddfcb001c2c7866c21bc62" category="list-text">それらを管理対象外のデータストアに移動するには、<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>を参照してください。</block>
+  <block id="04b5525fb0dd70ed32ea9bb7a57dfaf6" category="list-text">「スナップショット」タブに移動し、「スナップショットを撮る」ボタンを選択します。仮想マシンの静止状態のスナップショットを取得します。詳細については、<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>を参照してください。</block>
 </blocks>

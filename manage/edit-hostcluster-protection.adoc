@@ -21,6 +21,7 @@ summary: 保護対象ホストクラスタのSnapMirror関係を編集するこ�
 
 
 
+[[monitor-host-cluster-protection]]
 == ホストクラスタ保護の監視
 
 ホストクラスタ保護のステータスを監視するには、次の手順を実行します。保護されているすべてのホストクラスタを、保護状態、SnapMirror関係、データストア、および対応するSnapMirrorステータスとともに監視できます。
@@ -36,6 +37,7 @@ summary: 保護対象ホストクラスタのSnapMirror関係を編集するこ�
 
 
 
+[[add-new-datastores-or-hosts]]
 == 新しいデータストアまたはホストの追加
 
 新しく追加したデータストアまたはホストを保護するには、次の手順を実行します。vCenterの標準ユーザインターフェイスを使用して、保護対象クラスタに新しいホストを追加したり、ホストクラスタに新しいデータストアを作成したりできます。
@@ -62,6 +64,7 @@ vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況
 
 
 
+[[add-a-new-snapmirror-relationship]]
 == 新しいSnapMirror関係を追加する
 
 .手順
@@ -84,6 +87,7 @@ vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況
 
 
 
+[[delete-an-existing-snapmirror-relationship]]
 == 既存のSnapMirror関係を削除する
 
 非同期SnapMirror関係を削除するには、ONTAP tools for VMware vSphereで、セカンダリサイトのSVMまたはクラスタをストレージバックエンドとして追加する必要があります。SnapMirror関係をすべて削除することはできません。関係を削除すると、ONTAPクラスタの対応する関係も削除されます。AutomatedFailOverDuplex SnapMirror関係を削除すると、デスティネーションのデータストアのマッピングが解除され、整合グループ、LUN、ボリューム、およびigroupがデスティネーションONTAPクラスタから削除されます。
@@ -105,6 +109,7 @@ vCenterタスクが作成され、*[最近のタスク]*パネルで進捗状況
 
 
 
+[[modify-an-existing-snapmirror-relationship]]
 == 既存のSnapMirror関係を変更する
 
 非同期SnapMirror関係を変更するには、ONTAP tools for VMware vSphereで、セカンダリサイトのSVMまたはクラスタをストレージバックエンドとして追加する必要があります。AutomatedFailOverDuplex SnapMirror関係の場合は、均一な構成の場合はホストプロキシミティを変更し、不均一な構成の場合はホストアクセスを変更できます。AsynchronousポリシータイプとAutomatedFailOverDuplexポリシータイプを入れ替えることはできません。クラスタで新たに検出されたホストに近接またはアクセスを設定できます。

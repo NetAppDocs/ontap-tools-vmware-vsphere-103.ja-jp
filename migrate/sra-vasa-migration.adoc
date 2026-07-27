@@ -12,6 +12,7 @@ summary: ストレージデータを移行する際、ストレージバック�
 
 
 
+[[steps-to-migrate-the-vasa-provider]]
 == VASAプロバイダーの移行手順
 
 . 既存のONTAP tools for VMware vSphereでDerbyポート1527を有効にするには、rootユーザを有効にし、SSHを使用してCLIにログインします。次に、次のコマンドを実行します。
@@ -150,6 +151,7 @@ NOTE: UUIDは、移行後のAPIに対する応答で返される移行UUIDです
 
 
 
+[[steps-to-update-the-storage-replication-adaptorsra]]
 == ストレージレプリケーションアダプタ(SRA)を更新する手順
 
 .開始する前に

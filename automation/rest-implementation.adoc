@@ -20,6 +20,7 @@ REST APIには、vCenterやアグリゲートなど、複数のリソースカ�
 
 
 
+[[how-to-access-the-rest-api]]
 == REST API にアクセスする方法
 
 ONTAP tools for VMware vSphere 10 REST APIには、ONTAP toolsのロードバランサのIPアドレスとポートからアクセスできます。完全なURLには、次のようないくつかの部分があります。
@@ -47,12 +48,14 @@ CAUTION: 次の例のIPアドレスとポートの値は、説明のみを目的
 
 
 
+[[http-details]]
 == HTTPの詳細
 
 ONTAP tools for VMware vSphere 10 REST APIは、HTTPと関連パラメータを使用してリソースのインスタンスとコレクションを処理します。HTTP 実装の詳細を以下に示します。
 
 
 
+[[http-methods]]
 === HTTP メソッド
 
 REST APIでサポートされるHTTPメソッドまたは動詞を次の表に示します。
@@ -78,6 +81,7 @@ REST APIでサポートされるHTTPメソッドまたは動詞を次の表に�
 |===
 
 
+[[request-and-response-headers]]
 === 要求と応答のヘッダー
 
 次の表は、REST APIで使用される最も重要なHTTPヘッダーをまとめたものです。
@@ -97,6 +101,7 @@ REST APIでサポートされるHTTPメソッドまたは動詞を次の表に�
 |===
 
 
+[[http-status-codes]]
 === HTTP ステータスコード
 
 REST APIで使用されるHTTPステータスコードを次に示します。
@@ -137,6 +142,7 @@ REST APIで使用されるHTTPステータスコードを次に示します。
 |===
 
 
+[[authentication]]
 == 認証
 
 REST APIへのクライアントの認証は、アクセストークンを使用して実行されます。トークンと認証プロセスに関連する特性は次のとおりです。
@@ -151,6 +157,7 @@ REST APIへのクライアントの認証は、アクセストークンを使用
 
 
 
+[[synchronous-and-asynchronous-requests]]
 == 同期要求と非同期要求
 
 ほとんどのREST API呼び出しは短時間で完了するため、同期的に実行されます。つまり、リクエストが完了するとステータスコード（200など）が返されます。完了までに時間がかかる要求は、バックグラウンドジョブを使用して非同期で実行されます。

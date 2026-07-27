@@ -15,6 +15,7 @@ ONTAPでのONTAP Tools for VMware vSphere 10 RBACの実装については、本�
 
 
 
+[[overview-of-the-configuration-process]]
 == セツテイフロセスノカイヨウ
 
 ONTAP Tools for VMware vSphere 10では、カスタムロールを持つONTAPユーザの作成がサポートされます。定義はJSONファイルにパッケージ化されており、ONTAPクラスタにアップロードできます。ユーザを作成し、環境やセキュリティのニーズに合わせてロールを調整できます。
@@ -41,18 +42,21 @@ System Managerにサインインしたら、ユーザとロールを作成でき
 
 
 
+[[configure-the-role-using-system-manager]]
 == System Managerを使用してロールを設定する
 
 System Managerで新しいユーザとロールの作成を開始し、JSONファイルをアップロードしたら、環境とニーズに基づいてロールをカスタマイズできます。
 
 
 
+[[core-user-and-role-configuration]]
 === コアユーザとロールの設定
 
 RBACの定義は、VSC、VASA Provider、SRAなど、複数の製品機能としてパッケージ化されています。RBACのサポートが必要な環境を選択してください。たとえば、ロールでリモートプラグイン機能をサポートする場合は、[VSC]を選択します。また、ユーザ名と関連するパスワードを選択する必要があります。
 
 
 
+[[privileges]]
 === 権限
 
 Privilegesロールは、ONTAPストレージに必要なアクセスレベルに基づいて4セットに分類されます。ロールのベースとなるPrivilegesには次のものがあります。
@@ -77,6 +81,7 @@ Privilegesロールは、ONTAPストレージに必要なアクセスレベル�
 
 
 
+[[generate-the-user-with-a-role]]
 === ロールを持つユーザを生成する
 
 環境の構成オプションを選択したら、*[追加]*をクリックすると、ONTAPによってユーザーとロールが作成されます。生成されたロールの名前は、次の値を連結したものです。

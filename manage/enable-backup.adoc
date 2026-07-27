@@ -15,6 +15,7 @@ ONTAP tools for VMware vSphere 10.3では動的ストレージプロビジョニ
 
 
 
+[[create-backup-and-download-the-backup-file]]
 == バックアップを作成し、バックアップファイルをダウンロードする
 
 .手順
@@ -38,6 +39,7 @@ ONTAP tools for VMware vSphere 10.3では動的ストレージプロビジョニ
 
 
 
+[[recover]]
 == リカバリ
 
 セットアップをリカバリするには、既存の仮想マシンの電源をオフにし、初期導入で使用したOVAを使用して新しい仮想マシンを導入します。

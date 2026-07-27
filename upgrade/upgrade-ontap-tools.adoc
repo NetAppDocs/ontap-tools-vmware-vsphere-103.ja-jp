@@ -109,7 +109,7 @@ ONTAP tools for VMware vSphere 10.0から10.1にアップグレードする場�
 * vCenterでVMware vSphere VM用のONTAPツールのスナップショットを作成します（HA導入の場合は3 VM、非HA導入の場合は1 VM）*
 
 * vSphere Clientユーザインターフェイスで、VMを選択します。
-* [Snapshots]タブに移動し、*[Take Snapshot]*ボタンを選択します。VMの休止スナップショットを作成します。詳細については、を参照してください https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/take-snapshots-of-a-virtual-machine.html["仮想マシンのスナップショットの作成"^]。
+* 「スナップショット」タブに移動し、「スナップショットを撮る」ボタンを選択します。仮想マシンの静止状態のスナップショットを取得します。詳細については、 https://techdocs.broadcom.com/["Broadcom技術ドキュメント"^]を参照してください。
 
 
 アップグレードを実行する前に、「generate-support-bundle-job」というプレフィックスが付いた完了したポッドをログバンドルから削除してください。サポートバンドルの生成を実行中の場合は、完了してからポッドを削除します。

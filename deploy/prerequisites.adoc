@@ -17,6 +17,7 @@ ONTAP Tools for VMware vSphereは、VMware vCenter Server Virtual Appliance（vC
 
 
 
+[[system-requirements]]
 == システム要件
 
 * *ノードあたりのインストールパッケージのスペース要件*
@@ -50,6 +51,7 @@ ONTAP Tools for VMware vSphereは、VMware vCenter Server Virtual Appliance（vC
 |===
 
 
+[[minimum-storage-and-application-requirements]]
 == ストレージとアプリケーションの最小要件
 
 |===
@@ -76,6 +78,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 
 
+[[configuration-limits-to-deploy-ontap-tools-for-vmware-vsphere]]
 == ONTAP tools for VMware vSphereを導入するための構成の制限
 
 次の表は、VMware vSphere用のONTAP toolsを設定する際のガイドとして使用できます。
@@ -102,6 +105,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 |===
 
 
+[[ontap-tools-for-vmware-vsphere-storage-replication-adapter-sra]]
 == ONTAP Tools for VMware vSphere - Storage Replication Adapter（SRA）
 
 次の表に、ONTAP tools for VMware vSphereを使用したVMware Live Site Recoveryインスタンスごとにサポートされる数を示します。
@@ -144,6 +148,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 
 
+[[port-requirements]]
 == ポートの要件
 
 次の表に、NetAppで使用されるネットワークポートとその目的を示します。システム内での適切な操作と通信を容易にするために、これらのポートが開いていてアクセス可能であることを確認してください。関連するサービスが正しく機能するために、これらのポート上のトラフィックを許可するために必要なネットワーク構成が設定されていることを確認します。セキュリティポリシーによっては、ファイアウォールやその他のセキュリティアプライアンスを設定して、ネットワーク内でこのトラフィックを許可する必要があります。

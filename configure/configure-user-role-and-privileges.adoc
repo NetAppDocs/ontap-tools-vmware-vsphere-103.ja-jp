@@ -50,6 +50,7 @@ NOTE: ユーザは、クラスタレベルまたはStorage Virtual Machine（SVM
 
 
 
+[[svm-aggregate-mapping-requirements]]
 == SVMアグリゲートのマッピングの要件
 
 データストアのプロビジョニングにSVMのユーザクレデンシャルを使用するために、内部的にONTAP tools for VMware vSphereは、データストアのPOST APIで指定されたアグリゲートにボリュームを作成します。ONTAPでは、SVMユーザクレデンシャルを使用して、マッピングされていないアグリゲートにボリュームを作成することはできません。この問題を解決するには、ここで説明するONTAP REST APIまたはCLIを使用してSVMとアグリゲートをマッピングする必要があります。
@@ -68,6 +69,7 @@ sti115_vsim_ucs630f_aggr1 vserver show-aggregates                               
 ----
 
 
+[[create-ontap-user-and-role-manually]]
 == ONTAPのユーザとロールを手動で作成する
 
 このセクションの手順に従って、JSONファイルを使用せずにユーザとロールを手動で作成します。
@@ -103,6 +105,7 @@ sti115_vsim_ucs630f_aggr1 vserver show-aggregates                               
 
 
 
+[[list-of-minimum-privileges-required-for-non-admin-global-scoped-cluster-user]]
 === 管理者以外のグローバルを対象としたクラスタユーザに必要な最小権限のリスト
 
 このセクションには、users JSONファイルを使用せずに作成した管理者以外のグローバル対象のクラスタユーザに必要な最小権限を記載します。クラスタをローカルスコープで追加する場合は、JSONファイルを使用してユーザを作成することを推奨します。ONTAP tools for VMware vSphereでは、ONTAPでのプロビジョニングに読み取り権限だけでは不十分なためです。
@@ -149,6 +152,7 @@ APIの使用：
 |===
 
 
+[[create-ontap-tools-for-vmware-vsphere-ontap-api-based-cluster-scoped-user]]
 === クラスタを対象としたONTAP Tools for VMware vSphere ONTAP APIベースのユーザを作成する
 
 
@@ -260,6 +264,7 @@ security login rest-role create -role <role-name> -api /api/storage/storage-unit
 ----
 
 
+[[create-ontap-tools-for-vmware-vsphere-ontap-api-based-svm-scoped-user]]
 === ONTAP tools for VMware vSphere ONTAP APIベースのSVMを対象としたユーザを作成する
 
 すべてのPrivilegesを使用してSVMを対象としたユーザを作成するには、次のコマンドを実行します。
@@ -374,6 +379,7 @@ security login unlock -username testvpsraall -vserver C1_sti160-cluster
 ----
 
 
+[[upgrade-ontap-tools-for-vmware-vsphere-10-1-user-to-10-3-user]]
 == ONTAP tools for VMware vSphere 10.1ユーザから10.3ユーザへのアップグレード
 
 ONTAP tools for VMware vSphere 10.1ユーザが、JSONファイルを使用して作成されたクラスタスコープのユーザである場合は、ONTAP CLIでadminユーザを使用して次のコマンドを実行し、10.3リリースにアップグレードします。

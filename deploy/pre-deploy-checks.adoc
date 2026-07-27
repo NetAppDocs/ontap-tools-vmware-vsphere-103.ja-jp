@@ -48,10 +48,12 @@ summary: ONTAP tools for VMware vSphereを導入する前に、導入パッケ�
 |===
 
 
+[[deployment-worksheet]]
 == 導入ワークシート
 
 
 
+[[for-single-node-deployment]]
 === シングルノード導入の場合
 
 次のワークシートを使用して、ONTAP tools for VMware vSphereの初期導入に必要な情報を収集します。for ONTAP tools for VMware vSphereの初期導入：
@@ -99,6 +101,7 @@ summary: ONTAP tools for VMware vSphereを導入する前に、導入パッケ�
 
 
 
+[[for-high-availability-ha-deployment]]
 === ハイアヘイラヒリテイHAコウセイヨウ
 
 シングルノード導入の要件に加えて、HA導入には次の情報が必要です。
@@ -131,6 +134,7 @@ summary: ONTAP tools for VMware vSphereを導入する前に、導入パッケ�
 |===
 
 
+[[network-firewall-configuration]]
 == ネットワークファイアウォールの設定
 
 ネットワークファイアウォールで、IPアドレスに必要なポートを開きます。ONTAP toolsがポート443経由でこのLIFにアクセスできる必要があります。最新のアップデートについては、を参照してlink:../deploy/prerequisites.html["ポートの要件"]ください。
